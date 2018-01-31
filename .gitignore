@@ -288,4 +288,4 @@ __pycache__/
 *.xsd.cs
 
 # VS Project - for dependency paths
-*.vcxproj
+VS2017.vcxproj
