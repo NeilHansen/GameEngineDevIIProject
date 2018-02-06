@@ -137,6 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.cpp" />
     <ClCompile Include="AttributesComponentInterface.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LevelManager.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="TransformComponentInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.h" />
     <ClInclude Include="AttributesComponentInterface.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LevelManager.h" />
