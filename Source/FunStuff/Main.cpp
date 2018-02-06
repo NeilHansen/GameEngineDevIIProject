@@ -1,9 +1,4 @@
 ﻿/***************************************************************************
-// 100298843 - Lab 2.cpp by Austin Eathorne (C) 2017 All Rights Reserved.
-//
-// Lab 2 submission.
-//
-// Description: Initial checks for initializing
 // 
 //
 *****************************************************************************/
