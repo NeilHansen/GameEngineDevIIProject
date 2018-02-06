@@ -52,7 +52,7 @@ int main()
 	// cout architecture within function
 	GetSystemArchitecture();
 	*/
-	sf::RenderWindow window({ 1920, 1080 }, "Haiii");
+	sf::RenderWindow window({ 1200, 800 }, "Haiii");
 	window.setFramerateLimit(30);
 
 	while(window.isOpen())
