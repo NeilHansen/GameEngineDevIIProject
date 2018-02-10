@@ -1,9 +1,9 @@
 #include "ThomasTankEngine.h"
 
+
 using namespace std;
 
 ThomasTankEngine::GameState ThomasTankEngine::gameState = ThomasTankEngine::UnInitialized;
-sf::RenderWindow ThomasTankEngine::mainWindow;
 
 LPCTSTR ThomasTankEngine::g_gameTitle = "ThomasTankEngine";
 
@@ -14,9 +14,14 @@ DWORDLONG ThomasTankEngine::g_ramTotal = 0;
 DWORDLONG ThomasTankEngine::g_vramTotal = 0;
 DWORD ThomasTankEngine::g_cpuSpeed = 0;
 
+ThomasTankAudio ThomasTankEngine::thomasTankAudio = ThomasTankAudio();
+ThomasTankPhysics ThomasTankEngine::thomasTankPhysics = ThomasTankPhysics();
+ThomasTankDisplay ThomasTankEngine::thomasTankDisplay = ThomasTankDisplay();
+
+
 ThomasTankEngine::ThomasTankEngine()
 {
-	
+	gameState = ThomasTankEngine::UnInitialized;
 }
 
 ThomasTankEngine::~ThomasTankEngine()
@@ -49,25 +54,28 @@ void ThomasTankEngine::Initialize()
 	// cout architecture within function
 	ThomasTankEngine::GetSystemArchitecture();
 
-	// Create main window
-	ThomasTankEngine::mainWindow.create(sf::VideoMode(1000, 800, 32), "HEY HEY");
+	// Initialize other components of the engine
+	thomasTankAudio.Initialize();
+	thomasTankPhysics.Initialize();
+	thomasTankDisplay.Initialize();
+
+	gameState = ThomasTankEngine::ShowingSplash;
+
+	cout << "Engine Intialized" << "\n";
 }
 
 void ThomasTankEngine::Start()
 {
-	if (gameState != UnInitialized)
+	if (gameState == ThomasTankEngine::UnInitialized)
 	{
 		return;
 	}
 
+	// Show splash?
+
+
 	gameState = ThomasTankEngine::Playing;
-
-	while (!IsExiting())
-	{
-		GameLoop();
-	}
-
-	mainWindow.close();
+	Update();
 }
 
 bool ThomasTankEngine::IsExiting()
@@ -75,26 +83,15 @@ bool ThomasTankEngine::IsExiting()
 	return false;
 }
 
-void ThomasTankEngine::GameLoop()
+void ThomasTankEngine::Update()
 {
-	while (ThomasTankEngine::mainWindow.isOpen())
+	while (gameState == ThomasTankEngine::Playing)
 	{
-		sf::Event event;
-		while (ThomasTankEngine::mainWindow.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				ThomasTankEngine::mainWindow.close();
-			}
-		}
-		
-		ThomasTankEngine::mainWindow.clear();
-
-		sf::CircleShape circle = ThomasTankEngine::MakeCircle(100, 50, sf::Color::Green, sf::Color::Cyan);
-		circle.setPosition(150, 150);
-		ThomasTankEngine::mainWindow.draw(circle);
-		ThomasTankEngine::mainWindow.display();
+		thomasTankDisplay.Update();
+		Update();
 	}
+
+	thomasTankDisplay.mainWindow.close();
 }
 
 bool ThomasTankEngine::IsOnlyInstance(LPCTSTR gameTitle)
@@ -229,16 +226,4 @@ void ThomasTankEngine::GetSystemArchitecture()
 	if (sizeof(void*) == 4)
 	return 32;
 	*/
-}
-
-
-sf::CircleShape ThomasTankEngine::MakeCircle(float radius, float outlineThickness, sf::Color color, sf::Color outlineColor)
-{
-	sf::CircleShape circle(radius);
-	circle.setFillColor(color);
-
-	circle.setOutlineThickness(outlineThickness);
-	circle.setOutlineColor(outlineColor);
-
-	return circle;
 }

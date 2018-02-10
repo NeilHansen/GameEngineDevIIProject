@@ -16,6 +16,5 @@ int main(int argc, TCHAR* argv[])
 	ThomasTankEngine tankEngine = ThomasTankEngine();
 	tankEngine.Initialize();
 	tankEngine.Start();
-	tankEngine.GameLoop();
 }
 

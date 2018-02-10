@@ -57,6 +57,15 @@
     <ClCompile Include="ThomasTankEngine.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="ThomasTankAudio.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankPhysics.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankDisplay.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputManager.h">
@@ -87,6 +96,15 @@
       <Filter>Source Files\ActorInterfaces</Filter>
     </ClInclude>
     <ClInclude Include="ThomasTankEngine.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankAudio.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankPhysics.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankDisplay.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>

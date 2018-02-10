@@ -5,6 +5,10 @@
 #include <direct.h>
 #include <Windows.h>
 
+#include "ThomasTankAudio.h"
+#include "ThomasTankPhysics.h"
+#include "ThomasTankDisplay.h"
+
 class ThomasTankEngine
 {
 public:
@@ -12,15 +16,13 @@ public:
 	~ThomasTankEngine();
 	static void Initialize();
 	static void Start();
-	static void GameLoop();
+	static void Update();
 
 private:
 	static bool IsExiting();
 
 	enum GameState {UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting};
 	static GameState gameState;
-
-	static sf::RenderWindow mainWindow;
 
 	static LPCTSTR g_gameTitle;
 	static DWORDLONG g_diskSpaceNeeded;
@@ -36,8 +38,9 @@ private:
 	static DWORD ReadCPUSpeed();
 	static void GetSystemArchitecture();
 
-
-	static sf::CircleShape MakeCircle(float radius, float outlineThickness, sf::Color color, sf::Color outlineColor);
+	static ThomasTankAudio thomasTankAudio;
+	static ThomasTankPhysics thomasTankPhysics;
+	static ThomasTankDisplay thomasTankDisplay;
 };
 
 
