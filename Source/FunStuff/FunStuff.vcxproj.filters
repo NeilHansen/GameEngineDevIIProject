@@ -54,6 +54,9 @@
     <ClCompile Include="PhysicsComponentInterface.cpp">
       <Filter>Source Files\ActorInterfaces</Filter>
     </ClCompile>
+    <ClCompile Include="ThomasTankEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputManager.h">
@@ -82,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="AttributesComponentInterface.h">
       <Filter>Source Files\ActorInterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankEngine.h">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
