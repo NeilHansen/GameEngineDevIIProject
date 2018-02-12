@@ -1,10 +1,11 @@
 #include "SplashScreen.h"
 #include <SFML/Window.hpp>
+#include "ThomasTankEngine.h"
 
 void SplashScreen::Show(sf::RenderWindow & renderWindow)
 {
-	sf::Image image;
-	if (image.loadFromFile("Assets/Images/turmp.png") != true)
+	sf::Texture image;
+	if (image.loadFromFile("Assets/Images/ThomasTank.png") != true)
 	{
 		return;
 	}
@@ -17,9 +18,9 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow)
 
 	sf::Event event;
 	
-	while (_gameState != EngineName::Initialized)
+	while(ThomasTankEngine::gameState != ThomasTankEngine::ShowingSplash )
 	{
-		while (renderWindow.GetEvent(event)) 
+		while (renderWindow.pollEvent(event)) 
 		{
 			if (event.type == sf::Event::EventType::KeyPressed ||
 				event.type == sf::Event::EventType::MouseButtonPressed ||

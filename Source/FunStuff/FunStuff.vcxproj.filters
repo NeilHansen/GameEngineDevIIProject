@@ -57,8 +57,22 @@
     <ClCompile Include="PhysicsComponentInterface.cpp">
       <Filter>Source Files\ActorInterfaces</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.cpp">
       <Filter>Source Files\SplashScreen</Filter>
+=======
+    <ClCompile Include="ThomasTankEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankAudio.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankPhysics.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankDisplay.cpp">
+      <Filter>Source Files\Engine</Filter>
+>>>>>>> 6d53094f3b5bd906182b3d5ec73e2a69bcb1a731
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,8 +103,22 @@
     <ClInclude Include="AttributesComponentInterface.h">
       <Filter>Source Files\ActorInterfaces</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.h">
       <Filter>Source Files\SplashScreen</Filter>
+=======
+    <ClInclude Include="ThomasTankEngine.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankAudio.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankPhysics.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankDisplay.h">
+      <Filter>Source Files\Engine</Filter>
+>>>>>>> 6d53094f3b5bd906182b3d5ec73e2a69bcb1a731
     </ClInclude>
   </ItemGroup>
 </Project>

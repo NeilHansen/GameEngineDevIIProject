@@ -147,6 +147,10 @@
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="ThomasTankAudio.cpp" />
+    <ClCompile Include="ThomasTankDisplay.cpp" />
+    <ClCompile Include="ThomasTankEngine.cpp" />
+    <ClCompile Include="ThomasTankPhysics.cpp" />
     <ClCompile Include="TransformComponentInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +163,10 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="ThomasTankAudio.h" />
+    <ClInclude Include="ThomasTankDisplay.h" />
+    <ClInclude Include="ThomasTankEngine.h" />
+    <ClInclude Include="ThomasTankPhysics.h" />
     <ClInclude Include="TransformComponentInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
