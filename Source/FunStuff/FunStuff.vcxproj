@@ -144,6 +144,7 @@
     <ClCompile Include="PhysicsComponentInterface.cpp" />
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TransformComponentInterface.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="PhysicsComponentInterface.h" />
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="SceneGraph.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="TransformComponentInterface.h" />
