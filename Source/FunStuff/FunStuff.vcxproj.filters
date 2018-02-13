@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{6b23da18-8e89-4a29-9548-0f4abc057f06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SplashScreen">
+      <UniqueIdentifier>{311dabb1-d96e-4e0b-bb61-7c02608c338e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InputManager.cpp">
@@ -54,6 +57,23 @@
     <ClCompile Include="PhysicsComponentInterface.cpp">
       <Filter>Source Files\ActorInterfaces</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.cpp">
+      <Filter>Source Files\SplashScreen</Filter>
+=======
+    <ClCompile Include="ThomasTankEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankAudio.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankPhysics.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankDisplay.cpp">
+      <Filter>Source Files\Engine</Filter>
+>>>>>>> 6d53094f3b5bd906182b3d5ec73e2a69bcb1a731
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputManager.h">
@@ -82,6 +102,23 @@
     </ClInclude>
     <ClInclude Include="AttributesComponentInterface.h">
       <Filter>Source Files\ActorInterfaces</Filter>
+    </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.h">
+      <Filter>Source Files\SplashScreen</Filter>
+=======
+    <ClInclude Include="ThomasTankEngine.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankAudio.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankPhysics.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankDisplay.h">
+      <Filter>Source Files\Engine</Filter>
+>>>>>>> 6d53094f3b5bd906182b3d5ec73e2a69bcb1a731
     </ClInclude>
   </ItemGroup>
 </Project>
