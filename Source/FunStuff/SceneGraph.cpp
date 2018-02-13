@@ -15,6 +15,12 @@ void GameObject::AddChild(GameObject* s) {
 	s->parent = this;
 }
 
+void GameObject::Initialize()
+{
+	GameObject();
+	std::cout << "SceneGraph Initialized" << "\n";
+}
+
 void GameObject::Update(float msec) {
 	if (parent) {
 		worldTransform = parent->worldTransform * transform;

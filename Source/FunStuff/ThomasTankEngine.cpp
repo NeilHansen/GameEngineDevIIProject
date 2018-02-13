@@ -1,5 +1,6 @@
 #include "ThomasTankEngine.h"
 #include "SplashScreen.h"
+#include "SceneGraph.h"
 
 
 using namespace std;
@@ -18,6 +19,7 @@ DWORD ThomasTankEngine::g_cpuSpeed = 0;
 ThomasTankAudio ThomasTankEngine::thomasTankAudio = ThomasTankAudio();
 ThomasTankPhysics ThomasTankEngine::thomasTankPhysics = ThomasTankPhysics();
 ThomasTankDisplay ThomasTankEngine::thomasTankDisplay = ThomasTankDisplay();
+GameObject ThomasTankEngine::thomasTankSceneGraph = GameObject();
 
 
 ThomasTankEngine::ThomasTankEngine()
@@ -56,6 +58,7 @@ void ThomasTankEngine::Initialize()
 	ThomasTankEngine::GetSystemArchitecture();
 
 	// Initialize other components of the engine
+	thomasTankSceneGraph.Initialize();
 	thomasTankAudio.Initialize();
 	thomasTankPhysics.Initialize();
 	thomasTankDisplay.Initialize();

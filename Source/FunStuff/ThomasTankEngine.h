@@ -8,7 +8,8 @@
 #include "ThomasTankAudio.h"
 #include "ThomasTankPhysics.h"
 #include "ThomasTankDisplay.h"
-#include "SplashScreen.h" 
+#include "SplashScreen.h"
+#include "SceneGraph.h"
 
 class ThomasTankEngine
 {
@@ -42,6 +43,7 @@ private:
 	static ThomasTankAudio thomasTankAudio;
 	static ThomasTankPhysics thomasTankPhysics;
 	static ThomasTankDisplay thomasTankDisplay;
+	static GameObject thomasTankSceneGraph;
 };
 
 

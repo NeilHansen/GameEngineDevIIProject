@@ -20,6 +20,8 @@ public:
 	void SetParent(GameObject& p) { parent = s; }
 	void AddChild(GameObject* s);
 
+	void Initialize();
+
 	virtual void Update(float msec);
 
 protected:
