@@ -1,2 +1,0 @@
-
-#include "TransformComponentInterface.h"

@@ -1,124 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source Files\Managers">
-      <UniqueIdentifier>{4b16d4e3-c6e3-4108-9da0-e94ff0f316de}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ActorInterfaces">
-      <UniqueIdentifier>{a5f5e8cb-138c-49c5-9b31-f47cad0dcc11}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{6b23da18-8e89-4a29-9548-0f4abc057f06}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\SplashScreen">
-      <UniqueIdentifier>{311dabb1-d96e-4e0b-bb61-7c02608c338e}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="StateManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="TransformComponentInterface.cpp">
-      <Filter>Source Files\ActorInterfaces</Filter>
-    </ClCompile>
-    <ClCompile Include="AttributesComponentInterface.cpp">
-      <Filter>Source Files\ActorInterfaces</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsComponentInterface.cpp">
-      <Filter>Source Files\ActorInterfaces</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.cpp">
-      <Filter>Source Files\SplashScreen</Filter>
-=======
-    <ClCompile Include="ThomasTankEngine.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="ThomasTankAudio.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="ThomasTankPhysics.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>ThomasTankEngine</Filter>
     </ClCompile>
     <ClCompile Include="ThomasTankDisplay.cpp">
-      <Filter>Source Files\Engine</Filter>
->>>>>>> 6d53094f3b5bd906182b3d5ec73e2a69bcb1a731
+      <Filter>ThomasTankEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankEngine.cpp">
+      <Filter>ThomasTankEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankPhysics.cpp">
+      <Filter>ThomasTankEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGraph.cpp">
+      <Filter>ThomasTankEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.cpp">
+      <Filter>ThomasTankEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="InputManager.h">
-      <Filter>Source Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsManager.h">
-      <Filter>Source Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelManager.h">
-      <Filter>Source Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="StateManager.h">
-      <Filter>Source Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>Source Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderManager.h">
-      <Filter>Source Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsComponentInterface.h">
-      <Filter>Source Files\ActorInterfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformComponentInterface.h">
-      <Filter>Source Files\ActorInterfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="AttributesComponentInterface.h">
-      <Filter>Source Files\ActorInterfaces</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.h">
-      <Filter>Source Files\SplashScreen</Filter>
-=======
-    <ClInclude Include="ThomasTankEngine.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="ThomasTankAudio.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="ThomasTankPhysics.h">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>ThomasTankEngine</Filter>
     </ClInclude>
     <ClInclude Include="ThomasTankDisplay.h">
-      <Filter>Source Files\Engine</Filter>
->>>>>>> 6d53094f3b5bd906182b3d5ec73e2a69bcb1a731
+      <Filter>ThomasTankEngine</Filter>
     </ClInclude>
+    <ClInclude Include="ThomasTankEngine.h">
+      <Filter>ThomasTankEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankPhysics.h">
+      <Filter>ThomasTankEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGraph.h">
+      <Filter>ThomasTankEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.h">
+      <Filter>ThomasTankEngine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ThomasTankEngine">
+      <UniqueIdentifier>{972e5b7e-e46e-4a35-a1f6-03a074cff118}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

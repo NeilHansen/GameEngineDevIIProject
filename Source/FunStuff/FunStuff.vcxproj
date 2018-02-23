@@ -138,38 +138,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.cpp" />
-    <ClCompile Include="AttributesComponentInterface.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="PhysicsComponentInterface.cpp" />
-    <ClCompile Include="PhysicsManager.cpp" />
-    <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="ThomasTankAudio.cpp" />
     <ClCompile Include="ThomasTankDisplay.cpp" />
     <ClCompile Include="ThomasTankEngine.cpp" />
     <ClCompile Include="ThomasTankPhysics.cpp" />
-    <ClCompile Include="TransformComponentInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.h" />
-    <ClInclude Include="AttributesComponentInterface.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="LevelManager.h" />
-    <ClInclude Include="PhysicsComponentInterface.h" />
-    <ClInclude Include="PhysicsManager.h" />
-    <ClInclude Include="RenderManager.h" />
     <ClInclude Include="SceneGraph.h" />
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="StateManager.h" />
     <ClInclude Include="ThomasTankAudio.h" />
     <ClInclude Include="ThomasTankDisplay.h" />
     <ClInclude Include="ThomasTankEngine.h" />
     <ClInclude Include="ThomasTankPhysics.h" />
-    <ClInclude Include="TransformComponentInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
