@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Min Requirements
 LPCTSTR ThomasTankEngine::g_gameTitle = "ThomasTankEngine";
 DWORDLONG ThomasTankEngine::g_diskSpaceNeeded = 0;
 DWORDLONG ThomasTankEngine::g_vramAvailable = 0;
@@ -10,10 +11,17 @@ DWORDLONG ThomasTankEngine::g_ramTotal = 0;
 DWORDLONG ThomasTankEngine::g_vramTotal = 0;
 DWORD ThomasTankEngine::g_cpuSpeed = 0;
 
+// State
 ThomasTankEngine::GameState ThomasTankEngine::gameState = ThomasTankEngine::UnInitialized;
+
+// Scene Graph
 SceneGraph ThomasTankEngine::sceneGraph;
 
+// Stats
 const sf::Time ThomasTankEngine::timePerFrame = sf::seconds(1.0f/60.0f);
+sf::Time ThomasTankEngine::m_statsUpdateTime = sf::Time::Zero;
+std::size_t ThomasTankEngine::m_statsNumberOfFrames = 0;
+
 
 void ThomasTankEngine::Initialize()
 {
@@ -46,7 +54,8 @@ void ThomasTankEngine::Initialize()
 	ThomasTankPhysics::Initialize();
 	ThomasTankDisplay::Initialize();
 
-	//thomasTankSceneGraph.Initialize();
+	// Initialize scene graph
+	sceneGraph.Start();
 
 	gameState = ThomasTankEngine::ShowingSplash;
 
@@ -91,11 +100,26 @@ void ThomasTankEngine::Run()
 			// Handle input & update
 			ProcessInput();
 			Update(timePerFrame);
-			cout << "Update..." << endl;
+			//cout << "Update..." << endl;
 		}
 
-		// Render
+		// Update Stats & Render
+		UpdateStatistics(dt);
 		ThomasTankDisplay::Draw();
+	}
+}
+
+void ThomasTankEngine::UpdateStatistics(sf::Time deltaTime)
+{
+	m_statsUpdateTime += deltaTime;
+	m_statsNumberOfFrames++;
+
+	if (m_statsUpdateTime >= sf::seconds(1.0f))
+	{
+		ThomasTankDisplay::UpdateStatsText("FPS: " + std::to_string(m_statsNumberOfFrames));
+
+		m_statsUpdateTime -= sf::seconds(1.0f);
+		m_statsNumberOfFrames = 0;
 	}
 }
 

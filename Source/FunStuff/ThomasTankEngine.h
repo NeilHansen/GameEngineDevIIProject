@@ -17,17 +17,22 @@
 class ThomasTankEngine
 {
 public:
+	// Methods
 	static void Initialize();
 	static void Run();
 	
+	// Game State
 	enum GameState { UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 	static GameState gameState;
 	
 private:
+	// Methods
 	static void Quit();
+	static void UpdateStatistics(sf::Time deltaTime);
 	static void Update(sf::Time deltaTime);
 	static void ProcessInput();
 
+	// Min Requirements
 	static LPCTSTR g_gameTitle;
 	static DWORDLONG g_diskSpaceNeeded;
 	static DWORDLONG g_vramAvailable;
@@ -42,12 +47,16 @@ private:
 	static DWORD ReadCPUSpeed();
 	static void GetSystemArchitecture();
 
+	// Engine
 	static ThomasTankAudio thomasTankAudio;
 	static ThomasTankPhysics thomasTankPhysics;
 	static ThomasTankDisplay thomasTankDisplay;
 	static SceneGraph sceneGraph;
 
+	// Stats
 	static const sf::Time timePerFrame;
+	static sf::Time m_statsUpdateTime;
+	static std::size_t m_statsNumberOfFrames;
 };
 
 

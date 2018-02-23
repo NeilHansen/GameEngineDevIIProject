@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Text.hpp>
 
 class ThomasTankDisplay
 {
@@ -11,6 +12,8 @@ public:
 	~ThomasTankDisplay();
 	static void Initialize();
 	static void Draw();
+	static void UpdateStatsText(std::string str);
+
 	static sf::RenderWindow mainWindow;
 
 private:
