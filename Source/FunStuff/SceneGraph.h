@@ -10,8 +10,8 @@
 
 class GameObject {
 public:
-	GameObject() { parent = NULL; }
-	GameObject(void);
+	//GameObject() { parent = NULL; }
+	//GameObject(void);
 
 	void SetTransform(const Matrix4 &matrix) { transform = matrix; }
 	Matrix4 GetTransform() { return transform; }

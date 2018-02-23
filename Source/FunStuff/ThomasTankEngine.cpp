@@ -1,14 +1,10 @@
 #include "ThomasTankEngine.h"
-#include "SplashScreen.h"
-#include "SceneGraph.h"
 
+//#include "SceneGraph.h"
 
 using namespace std;
 
-ThomasTankEngine::GameState ThomasTankEngine::gameState = ThomasTankEngine::UnInitialized;
-
 LPCTSTR ThomasTankEngine::g_gameTitle = "ThomasTankEngine";
-
 DWORDLONG ThomasTankEngine::g_diskSpaceNeeded = 0;
 DWORDLONG ThomasTankEngine::g_vramAvailable = 0;
 DWORDLONG ThomasTankEngine::g_ramAvailable = 0;
@@ -16,20 +12,9 @@ DWORDLONG ThomasTankEngine::g_ramTotal = 0;
 DWORDLONG ThomasTankEngine::g_vramTotal = 0;
 DWORD ThomasTankEngine::g_cpuSpeed = 0;
 
-ThomasTankAudio ThomasTankEngine::thomasTankAudio = ThomasTankAudio();
-ThomasTankPhysics ThomasTankEngine::thomasTankPhysics = ThomasTankPhysics();
-ThomasTankDisplay ThomasTankEngine::thomasTankDisplay = ThomasTankDisplay();
-GameObject ThomasTankEngine::thomasTankSceneGraph = GameObject();
+ThomasTankEngine::GameState ThomasTankEngine::gameState = ThomasTankEngine::UnInitialized;
+//GameObject ThomasTankEngine::thomasTankSceneGraph = GameObject();
 
-
-ThomasTankEngine::ThomasTankEngine()
-{
-	gameState = ThomasTankEngine::UnInitialized;
-}
-
-ThomasTankEngine::~ThomasTankEngine()
-{
-}
 
 void ThomasTankEngine::Initialize()
 {
@@ -58,10 +43,11 @@ void ThomasTankEngine::Initialize()
 	ThomasTankEngine::GetSystemArchitecture();
 
 	// Initialize other components of the engine
-	thomasTankSceneGraph.Initialize();
-	thomasTankAudio.Initialize();
-	thomasTankPhysics.Initialize();
-	thomasTankDisplay.Initialize();
+	ThomasTankAudio::Initialize();
+	ThomasTankPhysics::Initialize();
+	ThomasTankDisplay::Initialize();
+
+	//thomasTankSceneGraph.Initialize();
 
 	gameState = ThomasTankEngine::ShowingSplash;
 
@@ -75,29 +61,34 @@ void ThomasTankEngine::Start()
 		return;
 	}
 
-	// Show splash?
-	
-	gameState = ThomasTankEngine::Playing;
-	SplashScreen::Show(ThomasTankDisplay::mainWindow);
-	Update();
-}
+	// Splash
+	if (gameState == ThomasTankEngine::ShowingSplash)
+	{
+		cout << "\nShow splash" << endl;
+		ThomasTankSplash::Show(ThomasTankDisplay::mainWindow);
+	}
 
+	// Main Loop
+	while (gameState != ThomasTankEngine::Exiting)
+	{
+		//cout << "Update" << endl;
+		Update();
+	}
 
-
-bool ThomasTankEngine::IsExiting()
-{
-	return false;
+	ThomasTankDisplay::mainWindow.close();
 }
 
 void ThomasTankEngine::Update()
 {
-	while (gameState == ThomasTankEngine::Playing)
-	{
-		thomasTankDisplay.Update();
-		Update();
-	}
+	// Update scene graph
 
-	thomasTankDisplay.mainWindow.close();
+	// Update display	
+	ThomasTankDisplay::Update();
+}
+
+bool ThomasTankEngine::IsExiting()
+{
+	return false;
 }
 
 bool ThomasTankEngine::IsOnlyInstance(LPCTSTR gameTitle)

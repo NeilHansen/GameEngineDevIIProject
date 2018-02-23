@@ -17,7 +17,7 @@
     <ClCompile Include="SceneGraph.cpp">
       <Filter>ThomasTankEngine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.cpp">
+    <ClCompile Include="ThomasTankSplash.cpp">
       <Filter>ThomasTankEngine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,7 +37,7 @@
     <ClInclude Include="SceneGraph.h">
       <Filter>ThomasTankEngine</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\SplashScreen.h">
+    <ClInclude Include="ThomasTankSplash.h">
       <Filter>ThomasTankEngine</Filter>
     </ClInclude>
   </ItemGroup>

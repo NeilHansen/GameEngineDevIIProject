@@ -1,5 +1,5 @@
 #include "SceneGraph.h"
-
+/*
 GameObject::GameObject() {
 	parent = NULL;
 }
@@ -33,3 +33,4 @@ void GameObject::Update(float msec) {
 		(*i)->Update(msec);
 	}
 }
+*/

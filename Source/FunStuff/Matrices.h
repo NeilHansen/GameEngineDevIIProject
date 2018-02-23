@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef VECTORS_H_DEF
 #define VECTORS_H_DEF
 #include <cmath>
@@ -169,3 +169,4 @@ inline std::ostream& operator<<(std::ostream& os, const Matrix4& vec) {
 	os << "(" << vec.x << ", " << vec.y << ", " << vec.z << ", " << vec.w << ")";
 	return os;
 }
+#endif

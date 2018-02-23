@@ -1,3 +1,4 @@
+#pragma once
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
@@ -8,23 +9,22 @@
 #include "ThomasTankAudio.h"
 #include "ThomasTankPhysics.h"
 #include "ThomasTankDisplay.h"
-#include "SplashScreen.h"
-#include "SceneGraph.h"
+#include "ThomasTankSplash.h"
+//#include "SceneGraph.h"
 
 class ThomasTankEngine
 {
 public:
-	ThomasTankEngine();
-	~ThomasTankEngine();
 	static void Initialize();
 	static void Start();
-	static void Update();
+	
 	enum GameState { UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 	static GameState gameState;
+	
 private:
 	static bool IsExiting();
+	static void Update();
 
-	
 
 	static LPCTSTR g_gameTitle;
 	static DWORDLONG g_diskSpaceNeeded;
@@ -43,7 +43,7 @@ private:
 	static ThomasTankAudio thomasTankAudio;
 	static ThomasTankPhysics thomasTankPhysics;
 	static ThomasTankDisplay thomasTankDisplay;
-	static GameObject thomasTankSceneGraph;
+	//static GameObject thomasTankSceneGraph;
 };
 
 
