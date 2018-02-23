@@ -119,6 +119,7 @@ void ThomasTankEngine::ProcessInput()
 	}
 }
 
+// Not actually being used right now
 void ThomasTankEngine::Quit()
 {
 	// Close application
