@@ -286,3 +286,13 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+Game/FunStuff_x64/FunStuff_x64.exe
+Temp/FunStuff.tlog/CL.command.1.tlog
+Temp/FunStuff.tlog/CL.read.1.tlog
+Temp/FunStuff.tlog/CL.write.1.tlog
+Temp/FunStuff.tlog/FunStuff.lastbuildstate
+Temp/FunStuff.tlog/link.command.1.tlog
+Temp/FunStuff.tlog/link.read.1.tlog
+Temp/FunStuff.tlog/link.write.1.tlog
+Temp/vc141.idb
+Temp/vc141.idb

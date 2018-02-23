@@ -40,7 +40,10 @@ void ThomasTankDisplay::Draw()
 	ThomasTankDisplay::mainWindow.clear();
 
 	sf::CircleShape circle = ThomasTankDisplay::MakeCircle(100, 50, sf::Color::Green, sf::Color::Cyan);
-	circle.setPosition(150, 150);
+	// Centers The Circle
+	sf::FloatRect circlePar = circle.getLocalBounds();
+	circle.setOrigin(circlePar.width / 2, circlePar.height / 2);
+	circle.setPosition(1000 / 2, 800 / 2);
 
 	ThomasTankDisplay::mainWindow.draw(circle);
 	ThomasTankDisplay::mainWindow.draw(statsText);

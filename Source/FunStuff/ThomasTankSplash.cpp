@@ -11,6 +11,11 @@ void ThomasTankSplash::Show(sf::RenderWindow & renderWindow)
 
 	sf::Sprite sprite(image);
 
+	// Center Splash Image
+	sf::FloatRect imgRect = sprite.getLocalBounds();
+	sprite.setOrigin(imgRect.width / 2, imgRect.height / 2);
+	sprite.setPosition(sf::Vector2f(1000 / 2.0f, 800 / 2.0f));
+
 	renderWindow.draw(sprite);
 	renderWindow.display();
 
