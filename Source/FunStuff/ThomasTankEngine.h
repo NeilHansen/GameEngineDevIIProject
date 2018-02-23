@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/System/Clock.hpp>
+
 #include <stdio.h>
 #include <iostream>
 #include <direct.h>
@@ -10,21 +12,21 @@
 #include "ThomasTankPhysics.h"
 #include "ThomasTankDisplay.h"
 #include "ThomasTankSplash.h"
-//#include "SceneGraph.h"
+#include "SceneGraph.h"
 
 class ThomasTankEngine
 {
 public:
 	static void Initialize();
-	static void Start();
+	static void Run();
 	
 	enum GameState { UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 	static GameState gameState;
 	
 private:
-	static bool IsExiting();
-	static void Update();
-
+	static void Quit();
+	static void Update(sf::Time deltaTime);
+	static void ProcessInput();
 
 	static LPCTSTR g_gameTitle;
 	static DWORDLONG g_diskSpaceNeeded;
@@ -43,7 +45,9 @@ private:
 	static ThomasTankAudio thomasTankAudio;
 	static ThomasTankPhysics thomasTankPhysics;
 	static ThomasTankDisplay thomasTankDisplay;
-	//static GameObject thomasTankSceneGraph;
+	static SceneGraph sceneGraph;
+
+	static const sf::Time timePerFrame;
 };
 
 

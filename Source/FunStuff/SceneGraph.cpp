@@ -1,36 +1,30 @@
 #include "SceneGraph.h"
-/*
-GameObject::GameObject() {
-	parent = NULL;
-}
 
-GameObject::~GameObject(void) {
-	for (unsigned int i = 0; i < children.size(); i++){
-		delete children[i];
-	}
-}
+int SceneGraph::nextObjectID = 0;
 
-void GameObject::AddChild(GameObject* s) {
-	children.push_back(s);
-	s->parent = this;
-}
 
-void GameObject::Initialize()
+GameObject* SceneGraph::CreateObject()
 {
-	GameObject();
-	std::cout << "SceneGraph Initialized" << "\n";
+	// Add obj to m_objects and increase the id for the next obj
+	GameObject* obj = new GameObject(nextObjectID);
+	m_Objects[obj->GetObjID()] = obj;
+	nextObjectID++;
+
+	return obj;
 }
 
-void GameObject::Update(float msec) {
-	if (parent) {
-		worldTransform = parent->worldTransform * transform;
-	}
-	else {
-		worldTransform = transform;
-	}
-
-	for (std::vector<GameObject*>::iterator i = children.begin(); i != children.end(); ++i) {
-		(*i)->Update(msec);
+void SceneGraph::Start()
+{
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i)
+	{
+		(i->second)->Start();
 	}
 }
-*/
+
+void SceneGraph::Update(sf::Time deltaTime)
+{
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i)
+	{
+		(i->second)->Update(deltaTime);
+	}
+}

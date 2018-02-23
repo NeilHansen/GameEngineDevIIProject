@@ -1,31 +1,17 @@
 #pragma once
-#include <iostream>
-#include <SFML\Graphics.hpp>
-#include <stdio.h>
-#include <Windows.h>
-#include <direct.h>
-#include <math.h>
-#include "Matrices.h"
+#include <map>
+#include "GameObject.h"
 
 
-class GameObject {
+class SceneGraph
+{
 public:
-	//GameObject() { parent = NULL; }
-	//GameObject(void);
+	GameObject* CreateObject();
 
-	void SetTransform(const Matrix4 &matrix) { transform = matrix; }
-	Matrix4 GetTransform() { return transform; }
-	Matrix4 GetWorldTransform() { return worldTransform; }
+	void Start();
+	void Update(sf::Time deltaTime);
 
-	void AddChild(GameObject* s);
-
-	void Initialize();
-
-	virtual void Update(float msec);
-
-protected:
-	GameObject* parent;
-	Matrix4 worldTransform;
-	Matrix4 transform;
-	std::vector<GameObject*> children;
+private:
+	std::map<int, GameObject*> m_Objects;
+	static int nextObjectID;
 };

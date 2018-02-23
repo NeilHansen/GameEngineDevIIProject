@@ -4,6 +4,8 @@
 #include <vector>
 #include <iterator>
 
+#include <SFML/System/Clock.hpp>
+
 #include "BaseComponent.h"
 #include "TransformComponent.h"
 
@@ -22,7 +24,7 @@ public:
 	void AddComponent(BaseComponent* component);
 
 	void Start();
-	void Update(float deltaTime);
+	void Update(sf::Time deltaTime);
 	
 	TransformComponent m_Transform;
 

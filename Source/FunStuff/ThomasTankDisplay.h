@@ -10,7 +10,7 @@ public:
 	ThomasTankDisplay();
 	~ThomasTankDisplay();
 	static void Initialize();
-	static void Update();
+	static void Draw();
 	static sf::RenderWindow mainWindow;
 
 private:

@@ -2,61 +2,61 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ThomasTankAudio.cpp">
-      <Filter>ThomasTankEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ThomasTankDisplay.cpp">
-      <Filter>ThomasTankEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ThomasTankEngine.cpp">
-      <Filter>ThomasTankEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ThomasTankPhysics.cpp">
-      <Filter>ThomasTankEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneGraph.cpp">
-      <Filter>ThomasTankEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ThomasTankSplash.cpp">
-      <Filter>ThomasTankEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>ThomasTankEngine</Filter>
-    </ClCompile>
     <ClCompile Include="BaseComponent.cpp">
       <Filter>ThomasTankEngine\Components</Filter>
     </ClCompile>
     <ClCompile Include="TransformComponent.cpp">
       <Filter>ThomasTankEngine\Components</Filter>
     </ClCompile>
+    <ClCompile Include="ThomasTankAudio.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankDisplay.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankEngine.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankPhysics.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankSplash.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>ThomasTankEngine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGraph.cpp">
+      <Filter>ThomasTankEngine\SceneGraph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ThomasTankAudio.h">
-      <Filter>ThomasTankEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ThomasTankDisplay.h">
-      <Filter>ThomasTankEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ThomasTankEngine.h">
-      <Filter>ThomasTankEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ThomasTankPhysics.h">
-      <Filter>ThomasTankEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneGraph.h">
-      <Filter>ThomasTankEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ThomasTankSplash.h">
-      <Filter>ThomasTankEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>ThomasTankEngine</Filter>
-    </ClInclude>
     <ClInclude Include="BaseComponent.h">
       <Filter>ThomasTankEngine\Components</Filter>
     </ClInclude>
     <ClInclude Include="TransformComponent.h">
       <Filter>ThomasTankEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankAudio.h">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankDisplay.h">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankEngine.h">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankPhysics.h">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankSplash.h">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>ThomasTankEngine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGraph.h">
+      <Filter>ThomasTankEngine\SceneGraph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +65,15 @@
     </Filter>
     <Filter Include="ThomasTankEngine\Components">
       <UniqueIdentifier>{b9e3acd6-db04-4786-a910-a7fb0f42cf34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThomasTankEngine\Main">
+      <UniqueIdentifier>{c67a8501-8244-4527-8e90-92b5a57e066f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThomasTankEngine\GameObject">
+      <UniqueIdentifier>{d863db6f-44c1-4db1-8a60-344bf274554b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThomasTankEngine\SceneGraph">
+      <UniqueIdentifier>{c7bab211-788f-4c7c-a64d-0fed83c25a4a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

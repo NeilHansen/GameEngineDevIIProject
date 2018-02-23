@@ -1,4 +1,5 @@
 #include "ThomasTankDisplay.h"
+#include "ThomasTankEngine.h"
 #include <iostream>
 
 sf::RenderWindow ThomasTankDisplay::mainWindow;
@@ -17,26 +18,15 @@ void ThomasTankDisplay::Initialize()
 	std::cout << "Display Engine Initialized" << "\n";
 }
 
-void ThomasTankDisplay::Update()
+void ThomasTankDisplay::Draw()
 {
-	while (mainWindow.isOpen())
-	{
-		sf::Event event;
-		while (ThomasTankDisplay::mainWindow.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				ThomasTankDisplay::mainWindow.close();
-			}
-		}
+	ThomasTankDisplay::mainWindow.clear();
 
-		ThomasTankDisplay::mainWindow.clear();
+	sf::CircleShape circle = ThomasTankDisplay::MakeCircle(100, 50, sf::Color::Green, sf::Color::Cyan);
+	circle.setPosition(150, 150);
+	ThomasTankDisplay::mainWindow.draw(circle);
+	ThomasTankDisplay::mainWindow.display();
 
-		sf::CircleShape circle = ThomasTankDisplay::MakeCircle(100, 50, sf::Color::Green, sf::Color::Cyan);
-		circle.setPosition(150, 150);
-		ThomasTankDisplay::mainWindow.draw(circle);
-		ThomasTankDisplay::mainWindow.display();
-	}
 }
 
 sf::CircleShape ThomasTankDisplay::MakeCircle(float radius, float outlineThickness, sf::Color color, sf::Color outlineColor)

@@ -11,8 +11,9 @@ DWORDLONG ThomasTankEngine::g_vramTotal = 0;
 DWORD ThomasTankEngine::g_cpuSpeed = 0;
 
 ThomasTankEngine::GameState ThomasTankEngine::gameState = ThomasTankEngine::UnInitialized;
-//GameObject ThomasTankEngine::thomasTankSceneGraph = GameObject();
+SceneGraph ThomasTankEngine::sceneGraph;
 
+const sf::Time ThomasTankEngine::timePerFrame = sf::seconds(1.0f/60.0f);
 
 void ThomasTankEngine::Initialize()
 {
@@ -52,7 +53,7 @@ void ThomasTankEngine::Initialize()
 	cout << "Engine Intialized" << "\n";
 }
 
-void ThomasTankEngine::Start()
+void ThomasTankEngine::Run()
 {
 	if (gameState == ThomasTankEngine::UnInitialized)
 	{
@@ -66,27 +67,62 @@ void ThomasTankEngine::Start()
 		ThomasTankSplash::Show(ThomasTankDisplay::mainWindow);
 	}
 
+	// Delta Time
+	sf::Clock clock = sf::Clock();
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+
 	// Main Loop
-	while (gameState != ThomasTankEngine::Exiting)
+	while (ThomasTankDisplay::mainWindow.isOpen())
 	{
-		//cout << "Update" << endl;
-		Update();
+		// Check if we should be exiting
+		if (gameState == ThomasTankEngine::Exiting)
+		{
+			//Quit; not working
+			return;
+		}
+
+		sf::Time dt = clock.restart();
+		timeSinceLastUpdate += dt;
+
+		while (timeSinceLastUpdate > timePerFrame)
+		{
+			timeSinceLastUpdate -= timePerFrame;
+
+			// Handle input & update
+			ProcessInput();
+			Update(timePerFrame);
+			cout << "Update..." << endl;
+		}
+
+		// Render
+		ThomasTankDisplay::Draw();
 	}
+}
 
+void ThomasTankEngine::Update(sf::Time deltaTime)
+{
+	// Draw scene graph
+	sceneGraph.Update(deltaTime);
+}
+
+void ThomasTankEngine::ProcessInput()
+{
+	sf::Event event;
+	while (ThomasTankDisplay::mainWindow.pollEvent(event))
+	{
+		// Check for window close
+		if (event.type == sf::Event::Closed)
+		{
+			//Quit; not working
+			ThomasTankDisplay::mainWindow.close();
+		}
+	}
+}
+
+void ThomasTankEngine::Quit()
+{
+	// Close application
 	ThomasTankDisplay::mainWindow.close();
-}
-
-void ThomasTankEngine::Update()
-{
-	// Update scene graph
-
-	// Update display	
-	ThomasTankDisplay::Update();
-}
-
-bool ThomasTankEngine::IsExiting()
-{
-	return false;
 }
 
 bool ThomasTankEngine::IsOnlyInstance(LPCTSTR gameTitle)

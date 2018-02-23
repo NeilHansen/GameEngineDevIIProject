@@ -18,7 +18,7 @@ public:
 	TransformComponent() : m_Position(), m_Rotation(), m_Scale(1.0f, 1.0f) {}
 	
 	void Start();
-	void Update(float deltaTime);
+	void Update();
 
 	sf::Transform transformMatrix;
 	Vector2 m_Position;

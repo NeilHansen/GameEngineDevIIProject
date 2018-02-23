@@ -13,7 +13,7 @@ void GameObject::Start()
 	}
 }
 
-void GameObject::Update(float deltaTime)
+void GameObject::Update(sf::Time deltaTime)
 {
 	// Update position relative to parent
 	if (m_Parent)
@@ -29,7 +29,7 @@ void GameObject::Update(float deltaTime)
 	// Run components/children update methods
 	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
-		(*i)->Update(deltaTime);
+		(*i)->Update();
 	}
 	for (std::vector<GameObject*>::iterator i = m_Children.begin(); i != m_Children.end(); ++i)
 	{

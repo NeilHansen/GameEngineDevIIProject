@@ -15,6 +15,6 @@ int main(int argc, TCHAR* argv[])
 {
 	//ThomasTankEngine tankEngine = ThomasTankEngine();
 	ThomasTankEngine::Initialize();
-	ThomasTankEngine::Start();
+	ThomasTankEngine::Run();
 }
 
