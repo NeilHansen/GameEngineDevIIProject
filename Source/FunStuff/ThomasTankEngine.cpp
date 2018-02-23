@@ -1,7 +1,5 @@
 #include "ThomasTankEngine.h"
 
-//#include "SceneGraph.h"
-
 using namespace std;
 
 LPCTSTR ThomasTankEngine::g_gameTitle = "ThomasTankEngine";
