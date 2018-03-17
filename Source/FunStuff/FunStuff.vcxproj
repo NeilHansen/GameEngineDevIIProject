@@ -137,6 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="TransformComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.h" />
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="SceneGraph.h" />
