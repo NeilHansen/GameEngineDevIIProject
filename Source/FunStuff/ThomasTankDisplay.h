@@ -15,7 +15,7 @@ public:
 	static void UpdateStatsText(std::string str);
 
 	static sf::RenderWindow mainWindow;
-
+	static sf::RectangleShape player;
 private:
 	static sf::CircleShape MakeCircle(float radius, float outlineThickness, sf::Color color, sf::Color outlineColor);
 };

@@ -29,6 +29,9 @@
     <ClCompile Include="SceneGraph.cpp">
       <Filter>ThomasTankEngine\SceneGraph</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseComponent.h">
@@ -57,6 +60,9 @@
     </ClInclude>
     <ClInclude Include="SceneGraph.h">
       <Filter>ThomasTankEngine\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.h">
+      <Filter>ThomasTankEngine\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
