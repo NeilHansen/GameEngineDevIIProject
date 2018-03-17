@@ -45,10 +45,16 @@ void ThomasTankDisplay::Draw()
 	circle.setOrigin(circlePar.width / 2, circlePar.height / 2);
 	circle.setPosition(1000 / 2, 800 / 2);
 
+	//stuff it tried to test player move
+	sf::RectangleShape player(sf::Vector2f(100,100));
+	player.setFillColor(sf::Color::Red);
+ThomasTankDisplay::mainWindow.draw(player);
+
 	ThomasTankDisplay::mainWindow.draw(circle);
 	ThomasTankDisplay::mainWindow.draw(statsText);
 
 	ThomasTankDisplay::mainWindow.display();
+
 }
 
 void ThomasTankDisplay::UpdateStatsText(std::string str)

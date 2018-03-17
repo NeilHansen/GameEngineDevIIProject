@@ -60,22 +60,23 @@ void ThomasTankInputManager::ProcessInput()
 				if (event.key.code == sf::Keyboard::W)
 				{
 					std::cout << "W" << "\n";
-					//(0,1)
+					//ThomasTankDisplay::player.move(0, 1);
+					
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
 					std::cout << "S" << "\n";
-					//(0,-1)
+					//player.move(0,-1);
 				}
 				if (event.key.code == sf::Keyboard::A)
 				{
 					std::cout << "A" << "\n";
-					//(1,0)
+					//player.move(1,0);
 				}
 				if (event.key.code == sf::Keyboard::D)
 				{
 					std::cout << "D" << "\n";
-					//(-1,0)
+					//player.move(-1,0);
 				}
 				if (event.key.code == sf::Keyboard::Space)
 				{

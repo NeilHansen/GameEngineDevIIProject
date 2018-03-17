@@ -19,7 +19,7 @@ void ThomasTankSplash::Show(sf::RenderWindow & renderWindow)
 	renderWindow.draw(sprite);
 	renderWindow.display();
 
-	sf::Event event;
+	//sf::Event event;
 
 	while (ThomasTankEngine::gameState == ThomasTankEngine::ShowingSplash)
 	{
