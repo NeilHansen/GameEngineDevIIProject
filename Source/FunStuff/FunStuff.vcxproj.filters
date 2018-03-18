@@ -29,8 +29,11 @@
     <ClCompile Include="SceneGraph.cpp">
       <Filter>ThomasTankEngine\SceneGraph</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.cpp">
+    <ClCompile Include="ThomasTankInput.cpp">
       <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyComponent.cpp">
+      <Filter>ThomasTankEngine\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,8 +64,14 @@
     <ClInclude Include="SceneGraph.h">
       <Filter>ThomasTankEngine\SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.h">
+    <ClInclude Include="ThomasTankInput.h">
       <Filter>ThomasTankEngine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyComponent.h">
+      <Filter>ThomasTankEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>ThomasTankEngine\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +89,9 @@
     </Filter>
     <Filter Include="ThomasTankEngine\SceneGraph">
       <UniqueIdentifier>{c7bab211-788f-4c7c-a64d-0fed83c25a4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThomasTankEngine\Utility">
+      <UniqueIdentifier>{d8549712-1a03-461b-bfe2-d033a684808e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -53,7 +53,7 @@ void ThomasTankEngine::Initialize()
 	ThomasTankAudio::Initialize();
 	ThomasTankPhysics::Initialize();
 	ThomasTankDisplay::Initialize();
-	ThomasTankInputManager::Initialize();
+	ThomasTankInput::Initialize();
 
 	// Initialize scene graph
 	sceneGraph.Start();
@@ -99,7 +99,7 @@ void ThomasTankEngine::Run()
 			timeSinceLastUpdate -= timePerFrame;
 
 			// Handle input & update
-			ThomasTankInputManager::ProcessInput();
+			ThomasTankInput::ProcessInput();
 			//ProcessInput();
 			Update(timePerFrame);
 			//cout << "Update..." << endl;
@@ -131,20 +131,6 @@ void ThomasTankEngine::Update(sf::Time deltaTime)
 	// Draw scene graph
 	sceneGraph.Update(deltaTime);
 }
-
-//void ThomasTankEngine::ProcessInput()
-//{
-//	sf::Event event;
-//	while (ThomasTankDisplay::mainWindow.pollEvent(event))
-//	{
-//		// Check for window close
-//		if (event.type == sf::Event::Closed)
-//		{
-//			//Quit; not working
-//			ThomasTankDisplay::mainWindow.close();
-//		}
-//	}
-//}
 
 // Not actually being used right now
 void ThomasTankEngine::Quit()
@@ -279,10 +265,4 @@ void ThomasTankEngine::GetSystemArchitecture()
 	cout << "\tSystem Architecture: " << charArr << "\n\n";
 
 	return;
-	/*
-	if (sizeof(void*) == 8)
-	return 64;
-	if (sizeof(void*) == 4)
-	return 32;
-	*/
 }

@@ -4,10 +4,10 @@
 //#include <SFML/Window/Event.hpp>
 #include <SFML/Window.hpp>
 
-class ThomasTankInputManager{
+class ThomasTankInput {
 public:
-	ThomasTankInputManager();
-	~ThomasTankInputManager();
+	ThomasTankInput();
+	~ThomasTankInput();
 	static void Initialize();
 	static void Update();
 	static void ProcessInput();
@@ -15,9 +15,9 @@ public:
 	void moveDown();
 	void moveLeft();
 	void moveRight();
-	
-	
+
+
 private:
-	
+
 };
 

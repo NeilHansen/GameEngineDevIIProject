@@ -2,15 +2,7 @@
 
 #include "SFML/Graphics/Transform.hpp"
 #include "BaseComponent.cpp"
-
-struct Vector2
-{
-public:
-	Vector2() : x(0.0f), y(0.0f) {}
-	Vector2(float X, float Y) : x(X), y(Y) {}
-
-	float x, y;
-};
+#include "Vector2.h"
 
 class TransformComponent : BaseComponent
 {
