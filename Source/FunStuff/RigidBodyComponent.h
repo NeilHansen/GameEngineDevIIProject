@@ -1,12 +1,12 @@
 #ifndef RIGIDBODYCOMPONENT_H
 #define RIGIDBODYCOMPONENT_H
 #pragma once
-#include "GameObject.h"
+//#include "GameObject.h"
 #include "BaseComponent.h"
 #include "Vector2.h"
 
 class ThomasTankPhysics;
-//class GameObject;
+class GameObject;
 
 struct AABB
 {

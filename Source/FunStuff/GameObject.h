@@ -14,7 +14,7 @@
 //#include "RigidBodyComponent.h"
 
 // forward declarations
-class RenderComponent;
+//class RenderComponent;
 class RigidbodyComponent;
 
 
@@ -30,13 +30,13 @@ public:
 	void SetParent(GameObject& parent);
 	void AddChild(GameObject* child);
 
-	void AddComponent(BaseComponent* component);
+	void AddComponent(BaseComponent* component); // how do we know what component were accessing, render/rb?
 
 	void Start();
 	void Update(sf::Time deltaTime);
 	
 	TransformComponent m_Transform;
-	//RigidBodyComponent m_RigidBody;
+	RigidBodyComponent m_RigidBody;
 	//RenderComponent m_Render;
 
 	int m_ID; // made this public for physics component, can remove GetObjID()

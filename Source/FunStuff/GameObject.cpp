@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "RigidBodyComponent.h"
 
 void GameObject::Start()
 {
