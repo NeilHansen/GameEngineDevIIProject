@@ -1,5 +1,7 @@
-#pragma once
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 
+#pragma once
 #include <list>
 #include <vector>
 #include <iterator>
@@ -8,11 +10,18 @@
 
 #include "BaseComponent.h"
 #include "TransformComponent.h"
+//#include "RenderComponent.h"
+//#include "RigidBodyComponent.h"
+
+// forward declarations
+class RenderComponent;
+class RigidbodyComponent;
 
 
 class GameObject
 {
 public:
+	GameObject() {}
 	GameObject(int objID) : m_ID(objID), m_Parent(NULL) {}
 
 	// Get/Set
@@ -27,11 +36,12 @@ public:
 	void Update(sf::Time deltaTime);
 	
 	TransformComponent m_Transform;
+	//RigidBodyComponent m_RigidBody;
+	//RenderComponent m_Render;
 
-	int m_ID; // moved this for physics component, can remove GetObjID()
+	int m_ID; // made this public for physics component, can remove GetObjID()
+
 private:
-	
-
 	GameObject* m_Parent;
 	std::vector<GameObject*> m_Children;
 
@@ -40,3 +50,5 @@ private:
 
 	std::vector<BaseComponent*> m_Components;
 };
+
+#endif

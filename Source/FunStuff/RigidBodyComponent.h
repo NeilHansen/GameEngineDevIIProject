@@ -6,6 +6,7 @@
 #include "Vector2.h"
 
 class ThomasTankPhysics;
+//class GameObject;
 
 struct AABB
 {
@@ -30,15 +31,16 @@ public:
 
 	AABB m_AABB;
 
-	GameObject m_owner = GameObject(-1);
+	GameObject m_owner;
 
 private:
 	Vector2 m_totalForces;
 	// physics engine ref
 
 public:
-	RigidBodyComponent();
-	~RigidBodyComponent(void); // I dunno why, but void.....
+	RigidBodyComponent() {}
+	RigidBodyComponent(GameObject owner) : m_owner(owner) {};
+	~RigidBodyComponent() {}; // I dunno why, but void.....
 
 	void Start();
 	// Update removed - is updated by physics engine

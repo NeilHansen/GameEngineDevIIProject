@@ -35,6 +35,9 @@
     <ClCompile Include="RigidBodyComponent.cpp">
       <Filter>ThomasTankEngine\Components</Filter>
     </ClCompile>
+    <ClCompile Include="RenderComponent.cpp">
+      <Filter>ThomasTankEngine\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseComponent.h">
@@ -75,6 +78,9 @@
     </ClInclude>
     <ClInclude Include="CollisionPair.h">
       <Filter>ThomasTankEngine\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderComponent.h">
+      <Filter>ThomasTankEngine\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

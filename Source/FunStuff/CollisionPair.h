@@ -4,6 +4,9 @@
 struct CollisionPair
 {
 public:
+	CollisionPair() {}
+	~CollisionPair() {}
+
 	RigidBodyComponent rigidBodyA;
 	RigidBodyComponent rigidBodyB;
 

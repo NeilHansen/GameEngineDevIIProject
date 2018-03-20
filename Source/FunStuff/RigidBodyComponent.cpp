@@ -1,14 +1,6 @@
+//#include "GameObject.h"
 #include "RigidBodyComponent.h"
 #include "ThomasTankPhysics.h"
-
-RigidBodyComponent::RigidBodyComponent()
-{
-
-}
-
-RigidBodyComponent::~RigidBodyComponent()
-{
-}
 
 void RigidBodyComponent::Start()
 {
@@ -30,7 +22,7 @@ void RigidBodyComponent::Stop()
 // TODO
 void RigidBodyComponent::SetAABB() // need access to renderer sprite bounds(how do we know position based off bounds?)
 {
-	// m_AABB.bLeft = Vector2(1,1);
+	//m_AABB.bLeft = Vector2(1,1);
 	// m_AABB.bLeft = Vector2(1,1);
 }
 
