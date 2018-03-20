@@ -99,26 +99,21 @@ void ThomasTankPhysics::CheckCollisions()
 
 			Vector2 disB = Vector2::Distance(bodyB->m_AABB.tRight, bodyB->m_AABB.bLeft);
 			Vector2 halfSizeB = Vector2(disB.x * 0.5f, disB.y * 0.5f);
-
+			
 			Vector2 gap = Vector2::Distance(Vector2(abs(distance.x), abs(distance.y)), Vector2(halfSizeA.x + halfSizeB.x, halfSizeA.y + halfSizeB.y));
+
+			std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
+
 			if (gap.x < 0 && gap.y < 0)
 			{
 				std::cout << "Objects collided!!" << std::endl;
 				
-				/*
-
-				WHERE THINGS GET FUCKED
-
-				std::map<CollisionPair, CollisionInfo>::iterator it = std::find(collisions.begin(), collisions.end(), colPair);
-				if (collisions.end() == it)
-				{
-					// collision not found
-				}
-				else
+				std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
+				if (collisions.end() != it)
 				{
 					collisions.erase(colPair); // remove collision pair
 				}
-				
+
 				if (gap.x > gap.y)
 				{
 					if (distance.x > 0)
@@ -144,18 +139,21 @@ void ThomasTankPhysics::CheckCollisions()
 					colInfo.penetration = gap.y;
 				}
 				collisions.insert(std::make_pair(colPair, colInfo));
-				*/
+			}
+			else if (collisions.end() != it)
+			{
+				collisions.erase(colPair); // remove collision pair
 			}
 
 			/*
-			std::map<CollisionPair, CollisionInfo>::iterator it2 = std::find(collisions.begin(), collisions.end(), colPair);
-			if (collisions.end() == it2)
+			std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
+			if (collisions.end() != it)
 			{
-				// collision not found
+				collisions.erase(colPair); // remove collision pair
 			}
 			else
 			{
-				collisions.erase(colPair); // remove collision pair
+
 			}
 			*/
 		}
@@ -164,12 +162,70 @@ void ThomasTankPhysics::CheckCollisions()
 
 void ThomasTankPhysics::ResolveCollisions()
 {
+	for (std::map<CollisionPair, CollisionInfo>::iterator it = collisions.begin(); it != collisions.end(); ++it)
+	{
+		float minBounce = std::min(it->first.rigidBodyA.m_bounciness, it->first.rigidBodyB.m_bounciness);
+		float velAlongNormal = Vector2::Dot(it->first.rigidBodyB.m_currentVelocity - it->first.rigidBodyA.m_currentVelocity, it->second.collisionNormal);
 
+		if (velAlongNormal > 0)
+		{
+			continue;
+		}
+			
+		float j = -(1 + minBounce) * velAlongNormal;
+		float invMassA, invMassB;
+
+		if (it->first.rigidBodyA.m_mass == 0.0f)
+		{
+			invMassA = 0.0f;
+		}
+		else
+		{
+			invMassA = 1 / it->first.rigidBodyA.m_mass;
+		}
+
+		if (it->first.rigidBodyB.m_mass == 0.0f)
+		{
+			invMassB = 0.0f;
+		}
+		else
+		{
+			invMassB = 1 / it->first.rigidBodyB.m_mass;
+		}
+
+		if (abs(it->second.penetration) > 0.01f)
+		{
+			PositionalCorrection(it->first);
+		}
+	}
 }
 
-void ThomasTankPhysics::PositionalCorrection()
+void ThomasTankPhysics::PositionalCorrection(CollisionPair c)
 {
+	const float percent = 0.2f;
 
+	float invMassA, invMassB;
+
+	if (c.rigidBodyA.m_mass == 0.0f)
+	{
+		invMassA = 0.0f;
+	}
+	else
+	{
+		invMassA = 1 / c.rigidBodyA.m_mass;
+	}
+
+	if (c.rigidBodyB.m_mass == 0.0f)
+	{
+		invMassB = 0.0f;
+	}
+	else
+	{
+		invMassB = 1 / c.rigidBodyB.m_mass;
+	}
+
+	if (abs(collisions.find(c)->second.penetration) > 0.01f)
+	{
+		PositionalCorrection(collisions.find(c)->first);
+	}
 }
-
-
