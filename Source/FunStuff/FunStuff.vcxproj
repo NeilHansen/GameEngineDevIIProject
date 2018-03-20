@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseComponent.h" />
+    <ClInclude Include="CollisionPair.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="SceneGraph.h" />

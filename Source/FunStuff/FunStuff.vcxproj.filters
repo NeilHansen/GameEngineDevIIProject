@@ -73,6 +73,9 @@
     <ClInclude Include="Vector2.h">
       <Filter>ThomasTankEngine\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionPair.h">
+      <Filter>ThomasTankEngine\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ThomasTankEngine">

@@ -6,6 +6,10 @@ RigidBodyComponent::RigidBodyComponent()
 
 }
 
+RigidBodyComponent::~RigidBodyComponent()
+{
+}
+
 void RigidBodyComponent::Start()
 {
 

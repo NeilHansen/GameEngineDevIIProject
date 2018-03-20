@@ -225,7 +225,3 @@ void ThomasTankPhysics::PositionalCorrection(CollisionPair c)
 	}
 }
 
-bool CollisionPair::operator==(const CollisionPair& cp) const
-{
-	return (this->rigidBodyA.m_owner.m_ID == cp.rigidBodyA.m_owner.m_ID && this->rigidBodyB.m_owner.m_ID == cp.rigidBodyB.m_owner.m_ID);
-}

@@ -38,7 +38,7 @@ private:
 
 public:
 	RigidBodyComponent();
-	~RigidBodyComponent();
+	~RigidBodyComponent(void); // I dunno why, but void.....
 
 	void Start();
 	void Update();
