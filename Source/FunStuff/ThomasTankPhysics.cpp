@@ -1,9 +1,8 @@
 #include "ThomasTankPhysics.h"
-
+#include "RigidBodyComponent.h"
 #include <cmath>
 #include <iostream>
 
-int ThomasTankPhysics::rigidBodyCount;
 float ThomasTankPhysics::groundedTolerance;
 
 std::map<CollisionPair, CollisionInfo> ThomasTankPhysics::collisions;
@@ -28,16 +27,12 @@ void ThomasTankPhysics::Initialize()
 {
 	// Initialize values
 	groundedTolerance = 0.1f;
-	rigidBodyCount = 0;
 
 	std::cout << "Physics Engine Initialized" << "\n";
 }
 
 void ThomasTankPhysics::AddRigidBody(RigidBodyComponent rb)
 {
-	rb.m_id = rigidBodyCount;
-	rigidBodyCount++;
-
 	rigidBodies.assign(1, rb);
 }
 
@@ -47,7 +42,7 @@ bool ThomasTankPhysics::IsGrounded(RigidBodyComponent rb)
 	for (std::list<RigidBodyComponent>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
 	{
 		// check the rb passed agains't all other rbs
-		if (it->m_id != rb.m_id)
+		if (it->m_owner.m_ID != rb.m_owner.m_ID)
 		{
 			// check if the rb is ontop of another object
 			if (rb.m_AABB.bLeft.x < it->m_AABB.tRight.x &&
@@ -228,4 +223,9 @@ void ThomasTankPhysics::PositionalCorrection(CollisionPair c)
 	{
 		PositionalCorrection(collisions.find(c)->first);
 	}
+}
+
+bool CollisionPair::operator==(const CollisionPair& cp) const
+{
+	return (this->rigidBodyA.m_owner.m_ID == cp.rigidBodyA.m_owner.m_ID && this->rigidBodyB.m_owner.m_ID == cp.rigidBodyB.m_owner.m_ID);
 }

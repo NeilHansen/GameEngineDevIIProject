@@ -20,4 +20,30 @@ public:
 
 	Vector2 operator+(const Vector2& v) const { return Vector2(x + v.x, y + v.y); }
 	Vector2 operator-(const Vector2& v) const { return Vector2(x - v.x, y - v.y); }
+	Vector2 operator+=(const Vector2& v) const 
+	{
+		float X = x, Y = y;
+		return Vector2(X += v.x, Y += v.y); 
+	}
+	Vector2 operator-=(const Vector2& v) const
+	{
+		float X = x, Y = y;
+		return Vector2(X -= v.x, Y -= v.y);
+	}
+
+	Vector2 operator*(const Vector2& v) const { return Vector2(x * v.x, y * v.y); }
+	Vector2 operator/(const Vector2& v) const { return Vector2(x / v.x, y / v.y); }
+	Vector2 operator*=(const Vector2& v) const
+	{
+		float X = x, Y = y;
+		return Vector2(X *= v.x, Y *= v.y);
+	}
+	Vector2 operator/=(const Vector2& v) const
+	{
+		float X = x, Y = y;
+		return Vector2(X /= v.x, Y /= v.y);
+	}
+
+	bool operator==(const Vector2& v) const	{ return (x == v.x && y == v.y); }
+	bool operator!=(const Vector2& v) const { return !operator==(v); }
 };

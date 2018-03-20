@@ -1,8 +1,11 @@
+#ifndef RIGIDBODYCOMPONENT_H
+#define RIGIDBODYCOMPONENT_H
 #pragma once
 #include "GameObject.h"
 #include "BaseComponent.h"
 #include "Vector2.h"
 
+class ThomasTankPhysics;
 
 struct AABB
 {
@@ -27,7 +30,6 @@ public:
 
 	AABB m_AABB;
 
-	int m_id;
 	GameObject m_owner = GameObject(-1);
 
 private:
@@ -35,7 +37,8 @@ private:
 	// physics engine ref
 
 public:
-	RigidBodyComponent::RigidBodyComponent();
+	RigidBodyComponent();
+	~RigidBodyComponent();
 
 	void Start();
 	void Update();
@@ -46,8 +49,9 @@ public:
 	void SetAABB();
 	void Integrate(float dt);
 
-	bool isGrounded();
+	bool IsGrounded();
 private:
 	
 };
 
+#endif
