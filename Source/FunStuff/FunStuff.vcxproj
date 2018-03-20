@@ -137,29 +137,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RigidBodyComponent.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="ThomasTankAudio.cpp" />
     <ClCompile Include="ThomasTankDisplay.cpp" />
     <ClCompile Include="ThomasTankEngine.cpp" />
+    <ClCompile Include="ThomasTankInput.cpp" />
     <ClCompile Include="ThomasTankPhysics.cpp" />
     <ClCompile Include="ThomasTankSplash.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\SchoolRepo%27s\Semester2\GameEngineDevIIProject\Source\FunStuff\ThomasTankInputManager.h" />
     <ClInclude Include="BaseComponent.h" />
+    <ClInclude Include="CollisionPair.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="SceneGraph.h" />
     <ClInclude Include="ThomasTankAudio.h" />
     <ClInclude Include="ThomasTankDisplay.h" />
     <ClInclude Include="ThomasTankEngine.h" />
+    <ClInclude Include="ThomasTankInput.h" />
     <ClInclude Include="ThomasTankPhysics.h" />
     <ClInclude Include="ThomasTankSplash.h" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

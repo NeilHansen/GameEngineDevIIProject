@@ -23,6 +23,6 @@ void ThomasTankSplash::Show(sf::RenderWindow & renderWindow)
 
 	while (ThomasTankEngine::gameState == ThomasTankEngine::ShowingSplash)
 	{
-			ThomasTankInputManager::ProcessInput();
+			ThomasTankInput::ProcessInput();
 	}
 }

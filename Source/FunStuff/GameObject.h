@@ -28,8 +28,9 @@ public:
 	
 	TransformComponent m_Transform;
 
+	int m_ID; // moved this for physics component, can remove GetObjID()
 private:
-	int m_ID;
+	
 
 	GameObject* m_Parent;
 	std::vector<GameObject*> m_Children;

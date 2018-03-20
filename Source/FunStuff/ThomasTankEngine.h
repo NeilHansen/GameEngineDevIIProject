@@ -13,7 +13,7 @@
 #include "ThomasTankDisplay.h"
 #include "ThomasTankSplash.h"
 #include "SceneGraph.h"
-#include "ThomasTankInputManager.h"
+#include "ThomasTankInput.h"
 
 class ThomasTankEngine
 {
@@ -50,11 +50,7 @@ private:
 	static void GetSystemArchitecture();
 
 	// Engine
-	static ThomasTankAudio thomasTankAudio;
-	static ThomasTankPhysics thomasTankPhysics;
-	static ThomasTankDisplay thomasTankDisplay;	
 	static SceneGraph sceneGraph;
-	//static ThomasTankInputManager thomasTankInput;
 
 	// Stats
 	static const sf::Time timePerFrame;

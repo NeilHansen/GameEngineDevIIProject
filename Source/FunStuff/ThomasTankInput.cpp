@@ -1,21 +1,20 @@
-#include "ThomasTankInputManager.h"
+#include "ThomasTankInput.h"
 #include <iostream>
 
-ThomasTankInputManager::ThomasTankInputManager()
+ThomasTankInput::ThomasTankInput()
 {
 }
-ThomasTankInputManager::~ThomasTankInputManager()
+ThomasTankInput::~ThomasTankInput()
 {
 }
 
-void ThomasTankInputManager::Initialize()
+void ThomasTankInput::Initialize()
 {
 	std::cout << "Input System Initialized" << "\n";
 }
 
 
-
-void ThomasTankInputManager::ProcessInput()
+void ThomasTankInput::ProcessInput()
 {
 	sf::Event event;
 	while (ThomasTankDisplay::mainWindow.pollEvent(event))
@@ -61,7 +60,7 @@ void ThomasTankInputManager::ProcessInput()
 				{
 					std::cout << "W" << "\n";
 					//ThomasTankDisplay::player.move(0, 1);
-					
+
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
@@ -82,14 +81,7 @@ void ThomasTankInputManager::ProcessInput()
 				{
 					std::cout << "SPACE" << "\n";
 				}
-
-
-				
-
 			}
-			
 		}
 	}
 }
-
-
