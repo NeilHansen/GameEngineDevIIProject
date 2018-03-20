@@ -18,6 +18,7 @@ public:
 		return ((v1.x * v2.x) + (v2.y * v2.y));
 	}
 
+	// Vector2 Arithmetic
 	Vector2 operator+(const Vector2& v) const { return Vector2(x + v.x, y + v.y); }
 	Vector2 operator-(const Vector2& v) const { return Vector2(x - v.x, y - v.y); }
 	Vector2 operator+=(const Vector2& v) const 
@@ -44,6 +45,11 @@ public:
 		return Vector2(X /= v.x, Y /= v.y);
 	}
 
+	// Vector2 Binary
 	bool operator==(const Vector2& v) const	{ return (x == v.x && y == v.y); }
 	bool operator!=(const Vector2& v) const { return !operator==(v); }
+
+	// Vector2/float Arithmetic
+	Vector2 operator*(const float& f) const { return Vector2(x * f, y * f); }
+	Vector2 operator/(const float& f) const { return Vector2(x * f, y * f); }
 };

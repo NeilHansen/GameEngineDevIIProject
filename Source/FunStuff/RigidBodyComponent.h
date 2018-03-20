@@ -41,7 +41,7 @@ public:
 	~RigidBodyComponent(void); // I dunno why, but void.....
 
 	void Start();
-	void Update();
+	// Update removed - is updated by physics engine
 
 	void AddForce(Vector2 force);
 	void Stop();
