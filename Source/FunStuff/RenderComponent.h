@@ -27,9 +27,9 @@ public:
 	sf::Texture m_texture;
 	Bounds m_bounds;
 	TransformComponent m_ownerTransform;
-
-private:
 	sf::Sprite m_sprite;
+private:
+	
 
 public:
 	RenderComponent() {}
@@ -38,6 +38,8 @@ public:
 
 	void Start();
 	void Draw();
+
+	//static sf::Sprite GetSprite();
 
 private:
 	void SetBounds();

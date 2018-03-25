@@ -10,6 +10,9 @@ GameObject* SceneGraph::CreateObject()
 	m_Objects[obj->GetObjID()] = obj;
 	nextObjectID++;
 
+	// add render component to our list (for passing to the display class)
+	renderComponents.push_back(obj->m_Render);
+
 	return obj;
 }
 
@@ -27,4 +30,9 @@ void SceneGraph::Update(sf::Time deltaTime)
 	{
 		(i->second)->Update(deltaTime);
 	}
+}
+
+std::list<RenderComponent> SceneGraph::GetRenderComponents()
+{
+	return renderComponents;
 }

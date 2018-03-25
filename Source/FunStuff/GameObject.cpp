@@ -5,6 +5,7 @@ void GameObject::Start()
 {
 	m_Transform = TransformComponent();
 	m_Render = RenderComponent();
+	m_Render.Start();
 	m_RigidBody = RigidBodyComponent(m_Transform, m_Render, m_ID);
 
 	// Run children start methods

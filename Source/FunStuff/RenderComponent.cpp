@@ -28,5 +28,5 @@ void RenderComponent::SetBounds()
 	sf::Rect<float> r = m_sprite.getGlobalBounds();
 
 	m_bounds.center = Vector2(m_sprite.getOrigin().x, m_sprite.getOrigin().y);
-	m_bounds.extents = Vector2(r.width * 0.5, r.height * 0.5);
+	m_bounds.extents = Vector2(r.width * 0.5f, r.height * 0.5f);
 }

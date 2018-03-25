@@ -16,6 +16,7 @@ public:
 	sf::Texture playerTexture;
 	sf::Texture enemyTexture;
 	sf::Texture miscTexture;
+	
 
 private:
 	std::string filePath = "../../Assets";

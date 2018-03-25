@@ -1,4 +1,3 @@
-//#include "GameObject.h"
 #include "RigidBodyComponent.h"
 #include "ThomasTankPhysics.h"
 
@@ -19,11 +18,12 @@ void RigidBodyComponent::Stop()
 	m_totalForces = Vector2(0.0f, 0.0f);
 }
 
-// TODO
-void RigidBodyComponent::SetAABB() // need access to renderer sprite bounds(how do we know position based off bounds?)
+void RigidBodyComponent::SetAABB()
 {
-	//m_AABB.bLeft = Vector2(1,1);
-	// m_AABB.bLeft = Vector2(1,1);
+	m_AABB.bLeft = Vector2(m_ownerRenderer.m_bounds.center.x - m_ownerRenderer.m_bounds.extents.x,
+		m_ownerRenderer.m_bounds.center.y - m_ownerRenderer.m_bounds.extents.y);
+	m_AABB.bLeft = Vector2(m_ownerRenderer.m_bounds.center.x + m_ownerRenderer.m_bounds.extents.x,
+		m_ownerRenderer.m_bounds.center.y + m_ownerRenderer.m_bounds.extents.y);
 }
 
 void RigidBodyComponent::Integrate(float dt)

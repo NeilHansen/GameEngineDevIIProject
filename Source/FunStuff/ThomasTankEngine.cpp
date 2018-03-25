@@ -17,6 +17,9 @@ ThomasTankEngine::GameState ThomasTankEngine::gameState = ThomasTankEngine::UnIn
 // Scene Graph
 SceneGraph ThomasTankEngine::sceneGraph;
 
+// Asset Holder
+ThomasTankAssetHolder ThomasTankEngine::assetHolder;
+
 // Stats
 const sf::Time ThomasTankEngine::timePerFrame = sf::seconds(1.0f/60.0f);
 sf::Time ThomasTankEngine::m_statsUpdateTime = sf::Time::Zero;
@@ -54,6 +57,9 @@ void ThomasTankEngine::Initialize()
 	ThomasTankPhysics::Initialize();
 	ThomasTankDisplay::Initialize();
 	ThomasTankInput::Initialize();
+
+	// Load assets in
+	assetHolder.LoadAssets();
 
 	// Initialize scene graph
 	sceneGraph.Start();
@@ -100,15 +106,12 @@ void ThomasTankEngine::Run()
 
 			// Handle input & update
 			ThomasTankInput::ProcessInput();
-			//ProcessInput();
 			Update(timePerFrame);
-			//cout << "Update..." << endl;
 		}
 
 		// Update Stats & Render
 		UpdateStatistics(dt);
-		ThomasTankDisplay::Draw();
-		
+		ThomasTankDisplay::Draw(sceneGraph.GetRenderComponents());
 	}
 }
 

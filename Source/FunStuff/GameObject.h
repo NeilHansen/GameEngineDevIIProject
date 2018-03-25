@@ -8,6 +8,7 @@
 
 #include <SFML/System/Clock.hpp>
 
+#include "Vector2.h"
 #include "BaseComponent.h"
 #include "TransformComponent.h"
 #include "RenderComponent.h"
@@ -41,6 +42,8 @@ private:
 
 	sf::Transform identityMatrix;
 	sf::Transform worldTransform;
+
+
 };
 
 #endif

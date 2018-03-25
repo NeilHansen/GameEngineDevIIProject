@@ -3,7 +3,7 @@
 #pragma once
 #include "BaseComponent.h"
 #include "TransformComponent.h"
-#include "RenderCOmponent.h"
+#include "RenderComponent.h"
 #include "Vector2.h"
 
 class ThomasTankPhysics;
@@ -34,12 +34,11 @@ public:
 
 	int m_Id;
 	
+	TransformComponent m_ownerTransform;
+	RenderComponent m_ownerRenderer;
 
 private:
 	Vector2 m_totalForces;
-
-	TransformComponent m_ownerTransform;
-	RenderComponent m_ownerRenderer;
 
 public:
 	RigidBodyComponent() {}

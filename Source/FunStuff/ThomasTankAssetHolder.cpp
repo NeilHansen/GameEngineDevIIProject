@@ -4,11 +4,25 @@
 void ThomasTankAssetHolder::LoadAssets()
 {
 	// load player texture
-	assert(!playerTexture.loadFromFile(filePath + "/Images/player.png"));
+	if (!playerTexture.loadFromFile(filePath + "/Images/player.png"))
+	{
+		std::cout << "Failed to load player image" << std::endl;
+	}
+	//assert();
 
 	// load enemy texture
-	assert(!enemyTexture.loadFromFile(filePath + "/Images/enemy.png"));
+	if (!enemyTexture.loadFromFile(filePath + "/Images/enemy.png"))
+	{
+		std::cout << "Failed to load enemy image" << std::endl;
+	}
+	//assert(!enemyTexture.loadFromFile(filePath + "/Images/enemy.png"));
 
 	// load other texture
-	assert(!enemyTexture.loadFromFile(filePath + "/Images/enemy.png")); // change
+	if (!miscTexture.loadFromFile(filePath + "/Images/misc.png"))
+	{
+		std::cout << "Failed to load misc image" << std::endl;
+	}
+	//assert(!enemyTexture.loadFromFile(filePath + "/Images/enemy.png")); // change
+
+	std::cout << "Assets Loaded" << std::endl;
 }

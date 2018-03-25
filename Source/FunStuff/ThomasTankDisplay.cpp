@@ -1,8 +1,6 @@
 #include "ThomasTankDisplay.h"
 #include "ThomasTankEngine.h"
 
-#include<stdio.h>
-#include <iostream>
 
 // Window
 sf::RenderWindow ThomasTankDisplay::mainWindow;
@@ -35,10 +33,10 @@ void ThomasTankDisplay::Initialize()
 	std::cout << "Display Engine Initialized" << "\n";
 }
 
-void ThomasTankDisplay::Draw()
+void ThomasTankDisplay::Draw(std::list<RenderComponent> rcs)
 {
 	ThomasTankDisplay::mainWindow.clear();
-
+	/*
 	sf::CircleShape circle = ThomasTankDisplay::MakeCircle(100, 50, sf::Color::Green, sf::Color::Cyan);
 	// Centers The Circle
 	sf::FloatRect circlePar = circle.getLocalBounds();
@@ -51,6 +49,13 @@ void ThomasTankDisplay::Draw()
 	//ThomasTankDisplay::mainWindow.draw(player);
 
 	ThomasTankDisplay::mainWindow.draw(circle);
+	*/
+
+	for (std::list<RenderComponent>::iterator it =rcs.begin(); it != rcs.end(); it++)
+	{
+		ThomasTankDisplay::mainWindow.draw(it->m_sprite);
+	}
+
 	ThomasTankDisplay::mainWindow.draw(statsText);
 
 	ThomasTankDisplay::mainWindow.display();
