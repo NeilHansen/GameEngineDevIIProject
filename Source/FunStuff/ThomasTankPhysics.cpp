@@ -6,18 +6,12 @@
 float ThomasTankPhysics::groundedTolerance;
 
 std::map<CollisionPair, CollisionInfo> ThomasTankPhysics::collisions;
-std::list<RigidBodyComponent> ThomasTankPhysics::rigidBodies;
-
-ThomasTankPhysics::ThomasTankPhysics()
-{
-}
-
-ThomasTankPhysics::~ThomasTankPhysics()
-{
-}
+std::list<RigidBodyComponent*> ThomasTankPhysics::rigidBodies;
 
 void ThomasTankPhysics::FixedUpdate(float dt)
 {
+	//std::cout << "Update Physics Engine" << std::endl;
+
 	IntegrateBodies(dt);
 	CheckCollisions();
 	ResolveCollisions();
@@ -31,26 +25,27 @@ void ThomasTankPhysics::Initialize()
 	std::cout << "Physics Engine Initialized" << "\n";
 }
 
-void ThomasTankPhysics::AddRigidBody(RigidBodyComponent rb)
+void ThomasTankPhysics::AddRigidBody(RigidBodyComponent* rb)
 {
-	rigidBodies.assign(1, rb);
+	rigidBodies.push_back(rb);
+	//std::cout << "RB Count: " << rigidBodies.size() << std::endl;
 }
 
-bool ThomasTankPhysics::IsGrounded(RigidBodyComponent rb)
+bool ThomasTankPhysics::IsGrounded(RigidBodyComponent* rb)
 {
 	// traverse rigid bodies
-	for (std::list<RigidBodyComponent>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
+	for (std::list<RigidBodyComponent*>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
 	{
 		// check the rb passed agains't all other rbs
-		if (it->m_owner.m_ID != rb.m_owner.m_ID)
+		if ((*it)->m_Id != rb->m_Id)
 		{
 			// check if the rb is ontop of another object
-			if (rb.m_AABB.bLeft.x < it->m_AABB.tRight.x &&
-				rb.m_AABB.tRight.x > it->m_AABB.bLeft.x &&
-				abs(rb.m_AABB.bLeft.y - it->m_AABB.tRight.y) <= groundedTolerance)
+			if (rb->m_AABB.bLeft.x < (*it)->m_AABB.tRight.x &&
+				rb->m_AABB.tRight.x > (*it)->m_AABB.bLeft.x &&
+				abs(rb->m_AABB.bLeft.y - (*it)->m_AABB.tRight.y) <= groundedTolerance)
 			{
 				// check if the absolute value of the rb's current vel (y) is less than the ground tolerance
-				if (abs(rb.m_currentVelocity.y) < groundedTolerance)
+				if (abs(rb->m_currentVelocity.y) < groundedTolerance)
 				{
 					return true;
 				}
@@ -62,40 +57,56 @@ bool ThomasTankPhysics::IsGrounded(RigidBodyComponent rb)
 
 void ThomasTankPhysics::IntegrateBodies(float dt)
 {
-	for (std::list<RigidBodyComponent>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
+	//std::cout << "Integrate Bodies" << "\n";
+
+	for (std::list<RigidBodyComponent*>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
 	{
-		it->Integrate(dt);
+		if(!(*it)->m_isKinematic)
+			(*it)->Integrate(dt);
 	}
 }
 
 void ThomasTankPhysics::CheckCollisions()
 {
-	// Get the second last element of our rigidbody list
-	auto secondLastElement = rigidBodies.end();
-	std::advance(secondLastElement, -1);
-
-	// Traverse all rigidbodies except the last
-	for (std::list<RigidBodyComponent>::iterator bodyA = rigidBodies.begin(); bodyA != secondLastElement; bodyA++)
+	// Traverse all rigidbodies
+	for (std::list<RigidBodyComponent*>::iterator bodyA = rigidBodies.begin(); bodyA != rigidBodies.end(); bodyA++)
 	{
-		// find the index of body a
-		auto remainingElements = rigidBodies.end();
-		std::advance(remainingElements, std::distance(bodyA, rigidBodies.end()));
-
-		for (std::list<RigidBodyComponent>::iterator bodyB = rigidBodies.begin(); bodyB != remainingElements; bodyB++)
+		// skip kinematic bodies
+		/*
+		if ((*bodyA)->m_isKinematic)
 		{
+			continue;
+		}
+		*/
+
+		// find the index of body a
+		auto remainingElements = bodyA;
+		std::advance(remainingElements, 1);
+
+		for (std::list<RigidBodyComponent*>::iterator bodyB = remainingElements; bodyB != rigidBodies.end(); bodyB++)
+		{
+			if ((*bodyA)->m_Id == (*bodyB)->m_Id)
+			{
+				std::cout << "Checking collision against self" << std::endl;
+				continue;
+			}
+
+			//std::cout << "Check collision" << std::endl;
 			CollisionPair colPair = CollisionPair();
 			CollisionInfo colInfo = CollisionInfo();
-			colPair.rigidBodyA = *bodyA;
-			colPair.rigidBodyB = *bodyB;
-			Vector2 distance = Vector2::Distance(bodyA->m_owner.m_Transform.m_Position, bodyB->m_owner.m_Transform.m_Position);
+			colPair.rigidBodyA = *(*bodyA);
+			colPair.rigidBodyB = *(*bodyB);
+			Vector2 distance = (*bodyA)->m_ownerTransform->m_Position - (*bodyB)->m_ownerTransform->m_Position;
 
-			Vector2 disA = Vector2::Distance(bodyA->m_AABB.tRight, bodyA->m_AABB.bLeft);
+			std::cout << "Distance: (" << distance.x << ", " << distance.y << ")" << std::endl;
+
+			Vector2 disA = (*bodyA)->m_AABB.tRight - (*bodyA)->m_AABB.bLeft;
 			Vector2 halfSizeA = Vector2(disA.x * 0.5f, disA.y * 0.5f);
 
-			Vector2 disB = Vector2::Distance(bodyB->m_AABB.tRight, bodyB->m_AABB.bLeft);
+			Vector2 disB = (*bodyB)->m_AABB.tRight - (*bodyB)->m_AABB.bLeft;
 			Vector2 halfSizeB = Vector2(disB.x * 0.5f, disB.y * 0.5f);
 			
-			Vector2 gap = Vector2::Distance(Vector2(abs(distance.x), abs(distance.y)), Vector2(halfSizeA.x + halfSizeB.x, halfSizeA.y + halfSizeB.y));
+			Vector2 gap = Vector2(abs(distance.x), abs(distance.y)) - Vector2(halfSizeA.x + halfSizeB.x, halfSizeA.y + halfSizeB.y);
 
 			std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
 
@@ -103,7 +114,7 @@ void ThomasTankPhysics::CheckCollisions()
 			{
 				std::cout << "Objects collided!!" << std::endl;
 				
-				std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
+				//std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
 				if (collisions.end() != it)
 				{
 					collisions.erase(colPair); // remove collision pair
@@ -123,13 +134,13 @@ void ThomasTankPhysics::CheckCollisions()
 				}
 				else
 				{
-					if (distance.y > 0)
+					if (distance.y < 0)
 					{
-						colInfo.collisionNormal = Vector2(0.0f, 1.0f); // up
+						colInfo.collisionNormal = Vector2(0.0f, -1.0f); // up
 					}
 					else
 					{
-						colInfo.collisionNormal = Vector2(0.0f, -1.0f); // down
+						colInfo.collisionNormal = Vector2(0.0f, 1.0f); // down
 					}
 					colInfo.penetration = gap.y;
 				}
@@ -139,18 +150,6 @@ void ThomasTankPhysics::CheckCollisions()
 			{
 				collisions.erase(colPair); // remove collision pair
 			}
-
-			/*
-			std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
-			if (collisions.end() != it)
-			{
-				collisions.erase(colPair); // remove collision pair
-			}
-			else
-			{
-
-			}
-			*/
 		}
 	}
 }
@@ -188,6 +187,18 @@ void ThomasTankPhysics::ResolveCollisions()
 			invMassB = 1 / it->first.rigidBodyB.m_mass;
 		}
 
+		j = j / (invMassA + invMassB);
+		Vector2 impulse = it->second.collisionNormal * j;
+
+		if (!it->first.rigidBodyA.m_isKinematic)
+		{
+			it->first.rigidBodyA.m_currentVelocity -= (impulse * invMassA);
+		}
+		if (!it->first.rigidBodyB.m_isKinematic)
+		{
+			it->first.rigidBodyB.m_currentVelocity -= (impulse * invMassB);
+		}
+
 		if (abs(it->second.penetration) > 0.01f)
 		{
 			PositionalCorrection(it->first);
@@ -219,9 +230,21 @@ void ThomasTankPhysics::PositionalCorrection(CollisionPair c)
 		invMassB = 1 / c.rigidBodyB.m_mass;
 	}
 
-	if (abs(collisions.find(c)->second.penetration) > 0.01f)
+	Vector2 correction = (collisions[c].collisionNormal * -1) * ((collisions[c].penetration / (invMassA + invMassB)) * percent);
+
+	if (!c.rigidBodyA.m_isKinematic)
 	{
-		PositionalCorrection(collisions.find(c)->first);
+		Vector2 temp = c.rigidBodyA.m_ownerTransform->m_Position;
+		temp = temp - (correction * invMassA);
+		c.rigidBodyA.m_ownerTransform->m_Position = temp;
 	}
+	
+	if (!c.rigidBodyB.m_isKinematic)
+	{
+		Vector2 temp = c.rigidBodyB.m_ownerTransform->m_Position;
+		temp = temp - (correction * invMassB);
+		c.rigidBodyB.m_ownerTransform->m_Position = temp;
+	}
+
 }
 

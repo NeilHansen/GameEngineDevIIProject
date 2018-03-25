@@ -25,19 +25,19 @@ private:
 	static float groundedTolerance;
 
 	static std::map<CollisionPair, CollisionInfo> collisions;
-	static std::list<RigidBodyComponent> rigidBodies;
+	static std::list<RigidBodyComponent*> rigidBodies;
 
 	static int rigidBodyCount;
 
 public:
-	ThomasTankPhysics();
-	~ThomasTankPhysics();
+	ThomasTankPhysics() {}
+	~ThomasTankPhysics() {}
 
 	static void Initialize();
 	static void FixedUpdate(float dt);	
 
-	static void AddRigidBody(RigidBodyComponent rb);
-	static bool IsGrounded(RigidBodyComponent rb);
+	static void AddRigidBody(RigidBodyComponent* rb);
+	static bool IsGrounded(RigidBodyComponent* rb);
 
 private:
 	static void CheckCollisions();

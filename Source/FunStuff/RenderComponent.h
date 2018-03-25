@@ -2,34 +2,44 @@
 #define RENDERCOMPONENT_H
 
 #pragma once
-//#include "GameObject.h"
 #include "BaseComponent.h"
+#include "TransformComponent.h"
 #include "Vector2.h"
 
 #include "SFML/Graphics/Sprite.hpp"
+#include "SFML/Graphics/Texture.hpp"
+#include "SFML/Graphics/Rect.hpp"
 
-class GameObject;
 
-// TODO create bounds for sprite
-// UNITY: This is the axis-aligned bounding box fully enclosing the object in world space.
 struct Bounds
 {
 public:
 	Vector2 center;
-	Vector2 extents; // 0-1 values?
+	Vector2 extents;
 };
 
 class RenderComponent:BaseComponent
 {
 public:
-	sf::Sprite m_sprite;
+	sf::Texture m_texture;
 	Bounds m_bounds;
+	TransformComponent* m_ownerTransform;
+	sf::Sprite m_sprite;
+private:
 	
-	//GameObject m_owner;
 
+public:
 	RenderComponent() {}
-	//RenderComponent(GameObject owner, sf::Sprite sprite) : m_owner(owner), m_sprite(sprite) {}
+	RenderComponent(TransformComponent* ownerTransform, sf::Texture texture) : m_ownerTransform(ownerTransform), m_texture(texture) {}
 	~RenderComponent() {}
+
+	void Start();
+	void UpdatePosition();
+
+	//static sf::Sprite GetSprite();
+
+private:
+	void SetBounds();
 };
 
 #endif // !RENDERCOMPONENT_H

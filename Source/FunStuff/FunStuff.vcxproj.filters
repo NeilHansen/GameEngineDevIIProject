@@ -38,6 +38,12 @@
     <ClCompile Include="RenderComponent.cpp">
       <Filter>ThomasTankEngine\Components</Filter>
     </ClCompile>
+    <ClCompile Include="ThomasTankAssetHolder.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ThomasTankDemo.cpp">
+      <Filter>ThomasTankEngine\Demo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseComponent.h">
@@ -82,6 +88,12 @@
     <ClInclude Include="RenderComponent.h">
       <Filter>ThomasTankEngine\Components</Filter>
     </ClInclude>
+    <ClInclude Include="ThomasTankAssetHolder.h">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankDemo.h">
+      <Filter>ThomasTankEngine\Demo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ThomasTankEngine">
@@ -101,6 +113,9 @@
     </Filter>
     <Filter Include="ThomasTankEngine\Utility">
       <UniqueIdentifier>{d8549712-1a03-461b-bfe2-d033a684808e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThomasTankEngine\Demo">
+      <UniqueIdentifier>{739109cc-5eab-4b34-a0be-d99df98ea3dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

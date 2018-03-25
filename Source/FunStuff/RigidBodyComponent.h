@@ -1,8 +1,9 @@
 #ifndef RIGIDBODYCOMPONENT_H
 #define RIGIDBODYCOMPONENT_H
 #pragma once
-#include "GameObject.h"
 #include "BaseComponent.h"
+#include "TransformComponent.h"
+#include "RenderComponent.h"
 #include "Vector2.h"
 
 class ThomasTankPhysics;
@@ -18,10 +19,10 @@ public:
 class RigidBodyComponent:BaseComponent
 {
 public:
-	float m_mass;
+	float m_mass = 1.0f;
 	float m_bounciness;
 
-	bool m_obeysGravity;
+	bool m_isKinematic;
 	bool m_isGrounded;
 
 	Vector2 m_gravity;
@@ -31,16 +32,18 @@ public:
 
 	AABB m_AABB;
 
-	GameObject m_owner;
+	int m_Id;
+	
+	TransformComponent* m_ownerTransform;
+	RenderComponent* m_ownerRenderer;
 
 private:
 	Vector2 m_totalForces;
-	// physics engine ref
 
 public:
 	RigidBodyComponent() {}
-	RigidBodyComponent(GameObject owner) : m_owner(owner) {};
-	~RigidBodyComponent() {}; // I dunno why, but void.....
+	RigidBodyComponent(TransformComponent* transform, RenderComponent* renderer, bool isKinematic, int id) : m_ownerTransform(transform), m_ownerRenderer(renderer), m_isKinematic(isKinematic), m_Id(id) {};
+	~RigidBodyComponent() {};
 
 	void Start();
 	// Update removed - is updated by physics engine

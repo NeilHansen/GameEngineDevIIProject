@@ -1,11 +1,12 @@
 #include "ThomasTankDisplay.h"
 #include "ThomasTankEngine.h"
 
-#include<stdio.h>
-#include <iostream>
 
 // Window
 sf::RenderWindow ThomasTankDisplay::mainWindow;
+
+// scene graph
+//SceneGraph ThomasTankDisplay::m_sceneGraph;
 
 // Stats text
 sf::Font statsFont;
@@ -19,7 +20,7 @@ ThomasTankDisplay::~ThomasTankDisplay()
 {
 }
 
-void ThomasTankDisplay::Initialize()
+void ThomasTankDisplay::Initialize(SceneGraph sg)
 {
 	// Create window
 	ThomasTankDisplay::mainWindow.create(sf::VideoMode(1000, 800, 32), "Engine");
@@ -35,22 +36,22 @@ void ThomasTankDisplay::Initialize()
 	std::cout << "Display Engine Initialized" << "\n";
 }
 
-void ThomasTankDisplay::Draw()
+void ThomasTankDisplay::Draw(SceneGraph sg)
 {
 	ThomasTankDisplay::mainWindow.clear();
 
-	sf::CircleShape circle = ThomasTankDisplay::MakeCircle(100, 50, sf::Color::Green, sf::Color::Cyan);
-	// Centers The Circle
-	sf::FloatRect circlePar = circle.getLocalBounds();
-	circle.setOrigin(circlePar.width / 2, circlePar.height / 2);
-	circle.setPosition(1000 / 2, 800 / 2);
+	int drawCount = 0;
 
-	//stuff it tried to test player move - this is just drawing a static object - we'll have to make a visual component er something
-	//sf::RectangleShape player(sf::Vector2f(100,100));
-	//player.setFillColor(sf::Color::Red);
-	//ThomasTankDisplay::mainWindow.draw(player);
+	std::list<RenderComponent*> rcs = sg.renderComponents;
+	//std::cout << "rcs to draw: " << sg.renderComponents.size() << std::endl;
 
-	ThomasTankDisplay::mainWindow.draw(circle);
+	for (std::list<RenderComponent*>::iterator it = rcs.begin(); it != rcs.end(); it++)
+	{
+		//std::cout << "draw: " << drawCount++ << std::endl;
+		ThomasTankDisplay::mainWindow.draw((*it)->m_sprite);
+	}
+
+	//std::cout << "draw: " << drawCount++ << std::endl;
 	ThomasTankDisplay::mainWindow.draw(statsText);
 
 	ThomasTankDisplay::mainWindow.display();

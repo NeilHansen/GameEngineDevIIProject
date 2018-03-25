@@ -17,6 +17,12 @@ ThomasTankEngine::GameState ThomasTankEngine::gameState = ThomasTankEngine::UnIn
 // Scene Graph
 SceneGraph ThomasTankEngine::sceneGraph;
 
+// Asset Holder
+ThomasTankAssetHolder ThomasTankEngine::assetHolder;
+
+// Demo
+ThomasTankDemo ThomasTankEngine::demo;
+
 // Stats
 const sf::Time ThomasTankEngine::timePerFrame = sf::seconds(1.0f/60.0f);
 sf::Time ThomasTankEngine::m_statsUpdateTime = sf::Time::Zero;
@@ -52,11 +58,19 @@ void ThomasTankEngine::Initialize()
 	// Initialize other components of the engine
 	ThomasTankAudio::Initialize();
 	ThomasTankPhysics::Initialize();
-	ThomasTankDisplay::Initialize();
+	ThomasTankDisplay::Initialize(sceneGraph);
 	ThomasTankInput::Initialize();
+
+	// Load assets in
+	assetHolder.LoadAssets();
 
 	// Initialize scene graph
 	sceneGraph.Start();
+
+	// demo
+	demo = ThomasTankDemo(&sceneGraph, assetHolder);
+	demo.Initialize();
+	demo.Start();
 
 	gameState = ThomasTankEngine::ShowingSplash;
 
@@ -100,15 +114,13 @@ void ThomasTankEngine::Run()
 
 			// Handle input & update
 			ThomasTankInput::ProcessInput();
-			//ProcessInput();
 			Update(timePerFrame);
-			//cout << "Update..." << endl;
 		}
 
 		// Update Stats & Render
 		UpdateStatistics(dt);
-		ThomasTankDisplay::Draw();
-		
+		//std::cout << "rcs to draw: " << sceneGraph.renderComponents.size() << std::endl;
+		ThomasTankDisplay::Draw(sceneGraph);
 	}
 }
 
@@ -128,7 +140,10 @@ void ThomasTankEngine::UpdateStatistics(sf::Time deltaTime)
 
 void ThomasTankEngine::Update(sf::Time deltaTime)
 {
-	// Draw scene graph
+	// Update physics engine - TODO create fixed update
+	ThomasTankPhysics::FixedUpdate(deltaTime.asSeconds());
+
+	// update scene graph
 	sceneGraph.Update(deltaTime);
 }
 

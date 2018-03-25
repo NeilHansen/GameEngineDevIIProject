@@ -14,6 +14,10 @@
 #include "ThomasTankSplash.h"
 #include "SceneGraph.h"
 #include "ThomasTankInput.h"
+#include "ThomasTankAssetHolder.h"
+
+#include "ThomasTankDemo.h"
+
 
 class ThomasTankEngine
 {
@@ -25,14 +29,12 @@ public:
 	// Game State
 	enum GameState { UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 	static GameState gameState;
-	
 
 private:
 	// Methods
 	static void Quit();
 	static void UpdateStatistics(sf::Time deltaTime);
 	static void Update(sf::Time deltaTime);
-	//static void ProcessInput();
 
 	// Min Requirements
 	static LPCTSTR g_gameTitle;
@@ -51,6 +53,8 @@ private:
 
 	// Engine
 	static SceneGraph sceneGraph;
+	static ThomasTankAssetHolder assetHolder;
+	static ThomasTankDemo demo;
 
 	// Stats
 	static const sf::Time timePerFrame;

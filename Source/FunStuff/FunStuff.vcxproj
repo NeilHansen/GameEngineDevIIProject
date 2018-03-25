@@ -143,7 +143,9 @@
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="RigidBodyComponent.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
+    <ClCompile Include="ThomasTankAssetHolder.cpp" />
     <ClCompile Include="ThomasTankAudio.cpp" />
+    <ClCompile Include="ThomasTankDemo.cpp" />
     <ClCompile Include="ThomasTankDisplay.cpp" />
     <ClCompile Include="ThomasTankEngine.cpp" />
     <ClCompile Include="ThomasTankInput.cpp" />
@@ -158,7 +160,9 @@
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="SceneGraph.h" />
+    <ClInclude Include="ThomasTankAssetHolder.h" />
     <ClInclude Include="ThomasTankAudio.h" />
+    <ClInclude Include="ThomasTankDemo.h" />
     <ClInclude Include="ThomasTankDisplay.h" />
     <ClInclude Include="ThomasTankEngine.h" />
     <ClInclude Include="ThomasTankInput.h" />
