@@ -87,7 +87,7 @@ void ThomasTankPhysics::CheckCollisions()
 		{
 			if ((*bodyA)->m_Id == (*bodyB)->m_Id)
 			{
-				std::cout << "Checking collision against self" << std::endl;
+				//std::cout << "Checking collision against self" << std::endl;
 				continue;
 			}
 
@@ -98,7 +98,7 @@ void ThomasTankPhysics::CheckCollisions()
 			colPair.rigidBodyB = *(*bodyB);
 			Vector2 distance = (*bodyA)->m_ownerTransform->m_Position - (*bodyB)->m_ownerTransform->m_Position;
 
-			std::cout << "Distance: (" << distance.x << ", " << distance.y << ")" << std::endl;
+			//std::cout << "Distance: (" << distance.x << ", " << distance.y << ")" << std::endl;
 
 			Vector2 disA = (*bodyA)->m_AABB.tRight - (*bodyA)->m_AABB.bLeft;
 			Vector2 halfSizeA = Vector2(disA.x * 0.5f, disA.y * 0.5f);
