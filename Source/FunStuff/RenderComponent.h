@@ -15,7 +15,7 @@ struct Bounds
 {
 public:
 	Vector2 center;
-	Vector2 extents; // 0-1 values?
+	Vector2 extents;
 };
 
 class RenderComponent:BaseComponent

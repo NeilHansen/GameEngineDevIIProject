@@ -22,7 +22,7 @@ public:
 	float m_mass = 1.0f;
 	float m_bounciness;
 
-	bool m_obeysGravity;
+	bool m_isKinematic;
 	bool m_isGrounded;
 
 	Vector2 m_gravity;
@@ -42,7 +42,7 @@ private:
 
 public:
 	RigidBodyComponent() {}
-	RigidBodyComponent(TransformComponent* transform, RenderComponent* renderer, bool obeysGravity, int id) : m_ownerTransform(transform), m_ownerRenderer(renderer), m_obeysGravity(obeysGravity), m_Id(id) {};
+	RigidBodyComponent(TransformComponent* transform, RenderComponent* renderer, bool isKinematic, int id) : m_ownerTransform(transform), m_ownerRenderer(renderer), m_isKinematic(isKinematic), m_Id(id) {};
 	~RigidBodyComponent() {};
 
 	void Start();

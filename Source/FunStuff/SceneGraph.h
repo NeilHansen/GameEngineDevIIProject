@@ -10,7 +10,7 @@
 class SceneGraph
 {
 public:
-	GameObject* CreateObject(sf::Texture texture);
+	GameObject* CreateObject(sf::Texture texture, bool isKinematic, Vector2 pos);
 
 	void Start();
 	void Update(sf::Time deltaTime);

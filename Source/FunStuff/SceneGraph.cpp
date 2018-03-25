@@ -2,12 +2,12 @@
 
 int SceneGraph::nextObjectID = 0;
 
-GameObject* SceneGraph::CreateObject(sf::Texture texture)
+GameObject* SceneGraph::CreateObject(sf::Texture texture, bool isKinematic, Vector2 pos)
 {
 	std::cout << "Scene Graph is Creating GameObject" << std::endl;
 
 	// Add obj to m_objects and increase the id for the next obj
-	GameObject* obj = new GameObject(nextObjectID, texture);
+	GameObject* obj = new GameObject(nextObjectID, texture, isKinematic, pos);
 	m_Objects.insert(std::make_pair(nextObjectID, obj));
 	//m_Objects[obj->m_ID] = obj;
 	nextObjectID++;
