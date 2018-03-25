@@ -20,10 +20,10 @@ void RigidBodyComponent::Stop()
 
 void RigidBodyComponent::SetAABB()
 {
-	m_AABB.bLeft = Vector2(m_ownerRenderer.m_bounds.center.x - m_ownerRenderer.m_bounds.extents.x,
-		m_ownerRenderer.m_bounds.center.y - m_ownerRenderer.m_bounds.extents.y);
-	m_AABB.bLeft = Vector2(m_ownerRenderer.m_bounds.center.x + m_ownerRenderer.m_bounds.extents.x,
-		m_ownerRenderer.m_bounds.center.y + m_ownerRenderer.m_bounds.extents.y);
+	m_AABB.bLeft = Vector2(m_ownerRenderer->m_bounds.center.x - m_ownerRenderer->m_bounds.extents.x,
+		m_ownerRenderer->m_bounds.center.y - m_ownerRenderer->m_bounds.extents.y);
+	m_AABB.bLeft = Vector2(m_ownerRenderer->m_bounds.center.x + m_ownerRenderer->m_bounds.extents.x,
+		m_ownerRenderer->m_bounds.center.y + m_ownerRenderer->m_bounds.extents.y);
 }
 
 void RigidBodyComponent::Integrate(float dt)
@@ -45,9 +45,9 @@ void RigidBodyComponent::Integrate(float dt)
 
 	m_currentVelocity += acceleration * dt;
 
-	Vector2 temp = m_ownerTransform.m_Position;
+	Vector2 temp = m_ownerTransform->m_Position;
 	temp += m_currentVelocity * dt;
-	m_ownerTransform.m_Position = temp;
+	m_ownerTransform->m_Position = temp;
 	SetAABB();
 
 	m_totalForces = Vector2(0.0f, 0.0f);

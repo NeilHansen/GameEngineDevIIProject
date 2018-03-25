@@ -6,9 +6,6 @@
 #include "GameObject.h"
 
 
-
-
-
 class SceneGraph
 {
 public:
@@ -17,12 +14,9 @@ public:
 	void Start();
 	void Update(sf::Time deltaTime);
 
-	std::list<RenderComponent> GetRenderComponents();
-	std::list<RenderComponent> renderComponents;
-	std::list<GameObject*> m_Objects = std::list<GameObject*>();
+	std::list<RenderComponent*> renderComponents;
 
 private:
-	
-	
+	std::map<int, GameObject*> m_Objects;
 	static int nextObjectID;
 };

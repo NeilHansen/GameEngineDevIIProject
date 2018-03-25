@@ -26,14 +26,14 @@ class RenderComponent:BaseComponent
 public:
 	sf::Texture m_texture;
 	Bounds m_bounds;
-	TransformComponent m_ownerTransform;
+	TransformComponent* m_ownerTransform;
 	sf::Sprite m_sprite;
 private:
 	
 
 public:
 	RenderComponent() {}
-	RenderComponent(TransformComponent ownerTransform, sf::Texture texture) : m_ownerTransform(ownerTransform), m_texture(texture) {}
+	RenderComponent(TransformComponent* ownerTransform, sf::Texture texture) : m_ownerTransform(ownerTransform), m_texture(texture) {}
 	~RenderComponent() {}
 
 	void Start();

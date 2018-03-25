@@ -56,13 +56,13 @@ void ThomasTankDisplay::Draw(SceneGraph sg)
 
 	int drawCount = 0;
 
-	std::list<RenderComponent> rcs = sg.renderComponents;
+	std::list<RenderComponent*> rcs = sg.renderComponents;
 	//std::cout << "rcs to draw: " << sg.renderComponents.size() << std::endl;
 
-	for (std::list<RenderComponent>::iterator it = rcs.begin(); it != rcs.end(); it++)
+	for (std::list<RenderComponent*>::iterator it = rcs.begin(); it != rcs.end(); it++)
 	{
-		std::cout << "draw: " << drawCount++ << std::endl;
-		ThomasTankDisplay::mainWindow.draw(it->m_sprite);
+		//std::cout << "draw: " << drawCount++ << std::endl;
+		ThomasTankDisplay::mainWindow.draw((*it)->m_sprite);
 	}
 
 	//std::cout << "draw: " << drawCount++ << std::endl;

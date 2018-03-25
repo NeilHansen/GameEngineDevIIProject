@@ -68,6 +68,7 @@ void ThomasTankEngine::Initialize()
 	sceneGraph.Start();
 
 	// demo
+	demo = ThomasTankDemo(&sceneGraph, assetHolder);
 	demo.Initialize();
 	demo.Start();
 
@@ -118,7 +119,7 @@ void ThomasTankEngine::Run()
 
 		// Update Stats & Render
 		UpdateStatistics(dt);
-		std::cout << "rcs to draw: " << sceneGraph.renderComponents.size() << std::endl;
+		//std::cout << "rcs to draw: " << sceneGraph.renderComponents.size() << std::endl;
 		ThomasTankDisplay::Draw(sceneGraph);
 	}
 }

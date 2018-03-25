@@ -33,7 +33,7 @@ void ThomasTankPhysics::Initialize()
 
 void ThomasTankPhysics::AddRigidBody(RigidBodyComponent rb)
 {
-	rigidBodies.assign(1, rb);
+	rigidBodies.push_back(rb);
 }
 
 bool ThomasTankPhysics::IsGrounded(RigidBodyComponent rb)
@@ -87,7 +87,7 @@ void ThomasTankPhysics::CheckCollisions()
 			CollisionInfo colInfo = CollisionInfo();
 			colPair.rigidBodyA = *bodyA;
 			colPair.rigidBodyB = *bodyB;
-			Vector2 distance = Vector2::Distance(bodyA->m_ownerTransform.m_Position, bodyB->m_ownerTransform.m_Position);
+			Vector2 distance = Vector2::Distance(bodyA->m_ownerTransform->m_Position, bodyB->m_ownerTransform->m_Position);
 
 			Vector2 disA = Vector2::Distance(bodyA->m_AABB.tRight, bodyA->m_AABB.bLeft);
 			Vector2 halfSizeA = Vector2(disA.x * 0.5f, disA.y * 0.5f);

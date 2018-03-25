@@ -34,15 +34,15 @@ public:
 
 	int m_Id;
 	
-	TransformComponent m_ownerTransform;
-	RenderComponent m_ownerRenderer;
+	TransformComponent* m_ownerTransform;
+	RenderComponent* m_ownerRenderer;
 
 private:
 	Vector2 m_totalForces;
 
 public:
 	RigidBodyComponent() {}
-	RigidBodyComponent(TransformComponent transform, RenderComponent renderer, int id) : m_ownerTransform(transform), m_ownerRenderer(renderer), m_Id(id) {};
+	RigidBodyComponent(TransformComponent* transform, RenderComponent* renderer, int id) : m_ownerTransform(transform), m_ownerRenderer(renderer), m_Id(id) {};
 	~RigidBodyComponent() {};
 
 	void Start();

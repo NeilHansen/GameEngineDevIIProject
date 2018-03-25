@@ -8,8 +8,7 @@ GameObject* SceneGraph::CreateObject(sf::Texture texture)
 
 	// Add obj to m_objects and increase the id for the next obj
 	GameObject* obj = new GameObject(nextObjectID, texture);
-	m_Objects.push_back(obj);
-	//m_Objects.insert(std::make_pair(nextObjectID, obj));
+	m_Objects.insert(std::make_pair(nextObjectID, obj));
 	//m_Objects[obj->m_ID] = obj;
 	nextObjectID++;
 
@@ -22,21 +21,17 @@ GameObject* SceneGraph::CreateObject(sf::Texture texture)
 
 void SceneGraph::Start()
 {
-	for (std::list<GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i)
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i)
 	{
-		(*i)->Start();
+		(i->second)->Start();
 	}
 }
 
 void SceneGraph::Update(sf::Time deltaTime)
 {
-	for (std::list<GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i)
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i)
 	{
-		(*i)->Update(deltaTime);
+		(i->second)->Update(deltaTime);
 	}
 }
 
-std::list<RenderComponent> SceneGraph::GetRenderComponents()
-{
-	return renderComponents;
-}
