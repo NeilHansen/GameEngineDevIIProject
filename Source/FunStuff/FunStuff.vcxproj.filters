@@ -38,6 +38,9 @@
     <ClCompile Include="RenderComponent.cpp">
       <Filter>ThomasTankEngine\Components</Filter>
     </ClCompile>
+    <ClCompile Include="ThomasTankAssetHolder.cpp">
+      <Filter>ThomasTankEngine\Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseComponent.h">
@@ -81,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="RenderComponent.h">
       <Filter>ThomasTankEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ThomasTankAssetHolder.h">
+      <Filter>ThomasTankEngine\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

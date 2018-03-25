@@ -12,11 +12,11 @@ public:
 
 	bool CollisionPair::operator==(const CollisionPair& cp) const
 	{
-		return (rigidBodyA.m_owner.m_ID == cp.rigidBodyA.m_owner.m_ID && rigidBodyB.m_owner.m_ID == cp.rigidBodyB.m_owner.m_ID);
+		return (rigidBodyA.m_Id == cp.rigidBodyA.m_Id && rigidBodyB.m_Id == cp.rigidBodyB.m_Id);
 	}
 	bool operator<(const CollisionPair& cp) const
 	{
-		return (rigidBodyA.m_owner.m_ID < cp.rigidBodyA.m_owner.m_ID || rigidBodyB.m_owner.m_ID < cp.rigidBodyB.m_owner.m_ID);
+		return (rigidBodyA.m_Id < cp.rigidBodyA.m_Id || rigidBodyB.m_Id < cp.rigidBodyB.m_Id);
 	}
 	bool operator!=(const CollisionPair& cp) const { return !operator==(cp); }
 	bool operator> (const CollisionPair& cp) const { return  operator< (cp); }

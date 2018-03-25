@@ -10,12 +10,8 @@
 
 #include "BaseComponent.h"
 #include "TransformComponent.h"
-//#include "RenderComponent.h"
-//#include "RigidBodyComponent.h"
-
-// forward declarations
-//class RenderComponent;
-class RigidbodyComponent;
+#include "RenderComponent.h"
+#include "RigidBodyComponent.h"
 
 
 class GameObject
@@ -30,14 +26,12 @@ public:
 	void SetParent(GameObject& parent);
 	void AddChild(GameObject* child);
 
-	void AddComponent(BaseComponent* component); // how do we know what component were accessing, render/rb?
-
 	void Start();
 	void Update(sf::Time deltaTime);
 	
 	TransformComponent m_Transform;
 	RigidBodyComponent m_RigidBody;
-	//RenderComponent m_Render;
+	RenderComponent m_Render;
 
 	int m_ID; // made this public for physics component, can remove GetObjID()
 
@@ -47,8 +41,6 @@ private:
 
 	sf::Transform identityMatrix;
 	sf::Transform worldTransform;
-
-	std::vector<BaseComponent*> m_Components;
 };
 
 #endif

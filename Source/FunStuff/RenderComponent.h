@@ -4,11 +4,13 @@
 #pragma once
 //#include "GameObject.h"
 #include "BaseComponent.h"
+#include "TransformComponent.h"
 #include "Vector2.h"
 
 #include "SFML/Graphics/Sprite.hpp"
+#include "SFML/Graphics/Texture.hpp"
+#include "SFML/Graphics/Rect.hpp"
 
-class GameObject;
 
 // TODO create bounds for sprite
 // UNITY: This is the axis-aligned bounding box fully enclosing the object in world space.
@@ -22,14 +24,23 @@ public:
 class RenderComponent:BaseComponent
 {
 public:
-	sf::Sprite m_sprite;
+	sf::Texture m_texture;
 	Bounds m_bounds;
-	
-	//GameObject m_owner;
+	TransformComponent m_ownerTransform;
 
+private:
+	sf::Sprite m_sprite;
+
+public:
 	RenderComponent() {}
-	//RenderComponent(GameObject owner, sf::Sprite sprite) : m_owner(owner), m_sprite(sprite) {}
+	RenderComponent(TransformComponent ownerTransform, sf::Texture texture) : m_ownerTransform(ownerTransform), m_texture(texture) {}
 	~RenderComponent() {}
+
+	void Start();
+	void Draw();
+
+private:
+	void SetBounds();
 };
 
 #endif // !RENDERCOMPONENT_H

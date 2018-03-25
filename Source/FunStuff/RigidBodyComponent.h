@@ -1,12 +1,13 @@
 #ifndef RIGIDBODYCOMPONENT_H
 #define RIGIDBODYCOMPONENT_H
 #pragma once
-//#include "GameObject.h"
 #include "BaseComponent.h"
+#include "TransformComponent.h"
+#include "RenderCOmponent.h"
 #include "Vector2.h"
 
 class ThomasTankPhysics;
-class GameObject;
+//class GameObject;
 
 struct AABB
 {
@@ -31,16 +32,19 @@ public:
 
 	AABB m_AABB;
 
-	GameObject m_owner;
+	int m_Id;
+	
 
 private:
 	Vector2 m_totalForces;
-	// physics engine ref
+
+	TransformComponent m_ownerTransform;
+	RenderComponent m_ownerRenderer;
 
 public:
 	RigidBodyComponent() {}
-	RigidBodyComponent(GameObject owner) : m_owner(owner) {};
-	~RigidBodyComponent() {}; // I dunno why, but void.....
+	RigidBodyComponent(TransformComponent transform, RenderComponent renderer, int id) : m_ownerTransform(transform), m_ownerRenderer(renderer), m_Id(id) {};
+	~RigidBodyComponent() {};
 
 	void Start();
 	// Update removed - is updated by physics engine

@@ -42,7 +42,7 @@ bool ThomasTankPhysics::IsGrounded(RigidBodyComponent rb)
 	for (std::list<RigidBodyComponent>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
 	{
 		// check the rb passed agains't all other rbs
-		if (it->m_owner.m_ID != rb.m_owner.m_ID)
+		if (it->m_Id != rb.m_Id)
 		{
 			// check if the rb is ontop of another object
 			if (rb.m_AABB.bLeft.x < it->m_AABB.tRight.x &&
@@ -87,7 +87,7 @@ void ThomasTankPhysics::CheckCollisions()
 			CollisionInfo colInfo = CollisionInfo();
 			colPair.rigidBodyA = *bodyA;
 			colPair.rigidBodyB = *bodyB;
-			Vector2 distance = Vector2::Distance(bodyA->m_owner.m_Transform.m_Position, bodyB->m_owner.m_Transform.m_Position);
+			Vector2 distance = Vector2::Distance(bodyA->m_ownerTransform.m_Position, bodyB->m_ownerTransform.m_Position);
 
 			Vector2 disA = Vector2::Distance(bodyA->m_AABB.tRight, bodyA->m_AABB.bLeft);
 			Vector2 halfSizeA = Vector2(disA.x * 0.5f, disA.y * 0.5f);
