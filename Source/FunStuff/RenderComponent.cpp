@@ -7,16 +7,12 @@ void RenderComponent::UpdatePosition() // name: Update()?
 {
 	// set the sprite's position to our owner's transform's position
 	m_sprite.setPosition(m_ownerTransform->m_Position.x, m_ownerTransform->m_Position.y);
-	std::cout << "Pos (x: " << m_ownerTransform->m_Position.x << ", y: " << m_ownerTransform->m_Position.y << ")" << std::endl;
+	//std::cout << "Pos (x: " << m_ownerTransform->m_Position.x << ", y: " << m_ownerTransform->m_Position.y << ")" << std::endl;
 }
 
 void RenderComponent::Start()
 {
-	std::cout << "sprite created" << std::endl;
-
 	// initialize sprite object(sf::drawable & sf::transformable)
-	//x get texture
-	//x get rect of texture to assign for sprite (let's just use single images for everything...)
 	m_sprite = sf::Sprite(m_texture); // create sprite
 
 	// Set our sprite's bounds
@@ -24,6 +20,8 @@ void RenderComponent::Start()
 
 	// set the sprite's position to our owner's transform's position
 	m_sprite.setPosition(m_ownerTransform->m_Position.x, m_ownerTransform->m_Position.y);
+
+	std::cout << "sprite created" << std::endl;
 }
 
 // Set this component's bounds to the size of its sprite's global bounds

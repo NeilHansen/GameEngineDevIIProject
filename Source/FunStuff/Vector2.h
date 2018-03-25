@@ -23,13 +23,13 @@ public:
 	Vector2 operator-(const Vector2& v) const { return Vector2(x - v.x, y - v.y); }
 	Vector2 operator+=(const Vector2& v) const 
 	{
-		float X = x, Y = y;
-		return Vector2(X += v.x, Y += v.y); 
+		float X = x + v.x, Y = y + v.y;
+		return Vector2(X, Y); 
 	}
 	Vector2 operator-=(const Vector2& v) const
 	{
-		float X = x, Y = y;
-		return Vector2(X -= v.x, Y -= v.y);
+		float X = x - v.x, Y = y - v.y;
+		return Vector2(X, Y);
 	}
 
 	Vector2 operator*(const Vector2& v) const { return Vector2(x * v.x, y * v.y); }

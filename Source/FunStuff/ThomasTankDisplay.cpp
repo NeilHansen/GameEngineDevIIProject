@@ -39,20 +39,6 @@ void ThomasTankDisplay::Initialize(SceneGraph sg)
 void ThomasTankDisplay::Draw(SceneGraph sg)
 {
 	ThomasTankDisplay::mainWindow.clear();
-	/*
-	sf::CircleShape circle = ThomasTankDisplay::MakeCircle(100, 50, sf::Color::Green, sf::Color::Cyan);
-	// Centers The Circle
-	sf::FloatRect circlePar = circle.getLocalBounds();
-	circle.setOrigin(circlePar.width / 2, circlePar.height / 2);
-	circle.setPosition(1000 / 2, 800 / 2);
-
-	//stuff it tried to test player move - this is just drawing a static object - we'll have to make a visual component er something
-	//sf::RectangleShape player(sf::Vector2f(100,100));
-	//player.setFillColor(sf::Color::Red);
-	//ThomasTankDisplay::mainWindow.draw(player);
-
-	ThomasTankDisplay::mainWindow.draw(circle);
-	*/
 
 	int drawCount = 0;
 

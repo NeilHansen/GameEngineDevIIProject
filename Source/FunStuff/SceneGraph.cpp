@@ -12,9 +12,12 @@ GameObject* SceneGraph::CreateObject(sf::Texture texture)
 	//m_Objects[obj->m_ID] = obj;
 	nextObjectID++;
 
-	// add render component to our list (for passing to the display class)
+	// Add render component to our list (for passing to the display class)
 	renderComponents.push_back(obj->m_Render);
-	std::cout << "render components size: " << renderComponents.size() << std::endl;
+	//std::cout << "render components size: " << renderComponents.size() << std::endl;
+
+	// Pass rb component to physics engine
+	ThomasTankPhysics::AddRigidBody(obj->m_RigidBody);
 
 	return obj;
 }

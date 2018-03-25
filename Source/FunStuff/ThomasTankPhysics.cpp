@@ -6,18 +6,12 @@
 float ThomasTankPhysics::groundedTolerance;
 
 std::map<CollisionPair, CollisionInfo> ThomasTankPhysics::collisions;
-std::list<RigidBodyComponent> ThomasTankPhysics::rigidBodies;
-
-ThomasTankPhysics::ThomasTankPhysics()
-{
-}
-
-ThomasTankPhysics::~ThomasTankPhysics()
-{
-}
+std::list<RigidBodyComponent*> ThomasTankPhysics::rigidBodies;
 
 void ThomasTankPhysics::FixedUpdate(float dt)
 {
+	//std::cout << "Update Physics Engine" << std::endl;
+
 	IntegrateBodies(dt);
 	CheckCollisions();
 	ResolveCollisions();
@@ -31,26 +25,27 @@ void ThomasTankPhysics::Initialize()
 	std::cout << "Physics Engine Initialized" << "\n";
 }
 
-void ThomasTankPhysics::AddRigidBody(RigidBodyComponent rb)
+void ThomasTankPhysics::AddRigidBody(RigidBodyComponent* rb)
 {
 	rigidBodies.push_back(rb);
+	//std::cout << "RB Count: " << rigidBodies.size() << std::endl;
 }
 
-bool ThomasTankPhysics::IsGrounded(RigidBodyComponent rb)
+bool ThomasTankPhysics::IsGrounded(RigidBodyComponent* rb)
 {
 	// traverse rigid bodies
-	for (std::list<RigidBodyComponent>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
+	for (std::list<RigidBodyComponent*>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
 	{
 		// check the rb passed agains't all other rbs
-		if (it->m_Id != rb.m_Id)
+		if ((*it)->m_Id != rb->m_Id)
 		{
 			// check if the rb is ontop of another object
-			if (rb.m_AABB.bLeft.x < it->m_AABB.tRight.x &&
-				rb.m_AABB.tRight.x > it->m_AABB.bLeft.x &&
-				abs(rb.m_AABB.bLeft.y - it->m_AABB.tRight.y) <= groundedTolerance)
+			if (rb->m_AABB.bLeft.x < (*it)->m_AABB.tRight.x &&
+				rb->m_AABB.tRight.x > (*it)->m_AABB.bLeft.x &&
+				abs(rb->m_AABB.bLeft.y - (*it)->m_AABB.tRight.y) <= groundedTolerance)
 			{
 				// check if the absolute value of the rb's current vel (y) is less than the ground tolerance
-				if (abs(rb.m_currentVelocity.y) < groundedTolerance)
+				if (abs(rb->m_currentVelocity.y) < groundedTolerance)
 				{
 					return true;
 				}
@@ -62,9 +57,11 @@ bool ThomasTankPhysics::IsGrounded(RigidBodyComponent rb)
 
 void ThomasTankPhysics::IntegrateBodies(float dt)
 {
-	for (std::list<RigidBodyComponent>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
+	//std::cout << "Integrate Bodies" << "\n";
+
+	for (std::list<RigidBodyComponent*>::iterator it = rigidBodies.begin(); it != rigidBodies.end(); it++)
 	{
-		it->Integrate(dt);
+		(*it)->Integrate(dt);
 	}
 }
 
@@ -75,24 +72,24 @@ void ThomasTankPhysics::CheckCollisions()
 	std::advance(secondLastElement, -1);
 
 	// Traverse all rigidbodies except the last
-	for (std::list<RigidBodyComponent>::iterator bodyA = rigidBodies.begin(); bodyA != secondLastElement; bodyA++)
+	for (std::list<RigidBodyComponent*>::iterator bodyA = rigidBodies.begin(); bodyA != secondLastElement; bodyA++)
 	{
 		// find the index of body a
 		auto remainingElements = rigidBodies.end();
 		std::advance(remainingElements, std::distance(bodyA, rigidBodies.end()));
 
-		for (std::list<RigidBodyComponent>::iterator bodyB = rigidBodies.begin(); bodyB != remainingElements; bodyB++)
+		for (std::list<RigidBodyComponent*>::iterator bodyB = rigidBodies.begin(); bodyB != remainingElements; bodyB++)
 		{
 			CollisionPair colPair = CollisionPair();
 			CollisionInfo colInfo = CollisionInfo();
-			colPair.rigidBodyA = *bodyA;
-			colPair.rigidBodyB = *bodyB;
-			Vector2 distance = Vector2::Distance(bodyA->m_ownerTransform->m_Position, bodyB->m_ownerTransform->m_Position);
+			colPair.rigidBodyA = *(*bodyA);
+			colPair.rigidBodyB = *(*bodyB);
+			Vector2 distance = Vector2::Distance((*bodyA)->m_ownerTransform->m_Position, (*bodyB)->m_ownerTransform->m_Position);
 
-			Vector2 disA = Vector2::Distance(bodyA->m_AABB.tRight, bodyA->m_AABB.bLeft);
+			Vector2 disA = Vector2::Distance((*bodyA)->m_AABB.tRight, (*bodyA)->m_AABB.bLeft);
 			Vector2 halfSizeA = Vector2(disA.x * 0.5f, disA.y * 0.5f);
 
-			Vector2 disB = Vector2::Distance(bodyB->m_AABB.tRight, bodyB->m_AABB.bLeft);
+			Vector2 disB = Vector2::Distance((*bodyB)->m_AABB.tRight, (*bodyB)->m_AABB.bLeft);
 			Vector2 halfSizeB = Vector2(disB.x * 0.5f, disB.y * 0.5f);
 			
 			Vector2 gap = Vector2::Distance(Vector2(abs(distance.x), abs(distance.y)), Vector2(halfSizeA.x + halfSizeB.x, halfSizeA.y + halfSizeB.y));

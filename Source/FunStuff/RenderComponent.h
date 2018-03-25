@@ -2,7 +2,6 @@
 #define RENDERCOMPONENT_H
 
 #pragma once
-//#include "GameObject.h"
 #include "BaseComponent.h"
 #include "TransformComponent.h"
 #include "Vector2.h"
@@ -12,8 +11,6 @@
 #include "SFML/Graphics/Rect.hpp"
 
 
-// TODO create bounds for sprite
-// UNITY: This is the axis-aligned bounding box fully enclosing the object in world space.
 struct Bounds
 {
 public:

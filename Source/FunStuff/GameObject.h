@@ -39,9 +39,11 @@ public:
 	GameObject(int objID, sf::Texture texture) : m_ID(objID), m_Parent(NULL), m_texture(texture) 
 	{
 		m_Transform = new TransformComponent();
+		m_Transform->Start();
 		m_Render = new RenderComponent(m_Transform, m_texture);
 		m_Render->Start();
-		m_RigidBody = new RigidBodyComponent(m_Transform, m_Render, m_ID);
+		m_RigidBody = new RigidBodyComponent(m_Transform, m_Render, true, m_ID);
+		m_RigidBody->Start();
 	}
 
 	// Get/Set

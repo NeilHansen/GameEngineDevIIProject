@@ -42,11 +42,3 @@ void GameObject::AddChild(GameObject* child)
 	m_Children.push_back(child);
 }
 
-/*
-void GameObject::AddComponent(BaseComponent* component)
-{
-	m_Components.push_back(component);
-}
-*/
-
-
