@@ -1,18 +1,11 @@
 #include "ThomasTankInput.h"
 #include <iostream>
 
-ThomasTankInput::ThomasTankInput()
-{
-}
-ThomasTankInput::~ThomasTankInput()
-{
-}
 
 void ThomasTankInput::Initialize()
 {
 	std::cout << "Input System Initialized" << "\n";
 }
-
 
 void ThomasTankInput::ProcessInput()
 {
@@ -44,12 +37,11 @@ void ThomasTankInput::ProcessInput()
 			{
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
 				{
-
+					
 					std::cout << "Mouse Button Right" << "\n";
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-
 					std::cout << "Mouse Button Left" << "\n";
 				}
 			}
@@ -58,24 +50,23 @@ void ThomasTankInput::ProcessInput()
 			{
 				if (event.key.code == sf::Keyboard::W)
 				{
+					MoveUp();
 					std::cout << "W" << "\n";
-					//ThomasTankDisplay::player.move(0, 1);
-
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
+					MoveDown();
 					std::cout << "S" << "\n";
-					//player.move(0,-1);
 				}
 				if (event.key.code == sf::Keyboard::A)
 				{
+					MoveLeft();
 					std::cout << "A" << "\n";
-					//player.move(1,0);
 				}
 				if (event.key.code == sf::Keyboard::D)
 				{
+					MoveRight();
 					std::cout << "D" << "\n";
-					//player.move(-1,0);
 				}
 				if (event.key.code == sf::Keyboard::Space)
 				{
@@ -84,4 +75,24 @@ void ThomasTankInput::ProcessInput()
 			}
 		}
 	}
+}
+
+void ThomasTankInput::MoveUp()
+{
+	ThomasTankEngine::MovePlayer(Vector2(0.0f, -1.0f));
+}
+
+void ThomasTankInput::MoveDown()
+{
+	ThomasTankEngine::MovePlayer(Vector2(0.0f, 1.0f));
+}
+
+void ThomasTankInput::MoveLeft()
+{
+	ThomasTankEngine::MovePlayer(Vector2(-1.0f, 0.0f));
+}
+
+void ThomasTankInput::MoveRight()
+{
+	ThomasTankEngine::MovePlayer(Vector2(1.0f, 0.0f));
 }

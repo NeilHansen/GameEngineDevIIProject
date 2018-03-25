@@ -72,6 +72,8 @@ void ThomasTankEngine::Initialize()
 	demo.Initialize();
 	demo.Start();
 
+	
+
 	gameState = ThomasTankEngine::ShowingSplash;
 
 	cout << "Engine Intialized" << "\n";
@@ -145,6 +147,12 @@ void ThomasTankEngine::Update(sf::Time deltaTime)
 
 	// update scene graph
 	sceneGraph.Update(deltaTime);
+}
+
+// called from input - tells demo to move player
+void ThomasTankEngine::MovePlayer(Vector2 dir)
+{
+	demo.MovePlayer(dir);
 }
 
 // Not actually being used right now
