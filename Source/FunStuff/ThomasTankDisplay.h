@@ -10,7 +10,8 @@
 #include <stdio.h>
 #include <iostream>
 
-#include "RenderComponent.h"
+//#include "RenderComponent.h"
+#include "SceneGraph.h"
 
 class ThomasTankDisplay
 {
@@ -18,11 +19,12 @@ public:
 	ThomasTankDisplay();
 	~ThomasTankDisplay();
 
-	static void Initialize();
-	static void Draw(std::list<RenderComponent> rcs);
+	static void Initialize(SceneGraph sg);
+	static void Draw(SceneGraph sg);
 	static void UpdateStatsText(std::string str);
 
 	static sf::RenderWindow mainWindow;
+	//static SceneGraph m_sceneGraph;
 
 private:
 	static sf::CircleShape MakeCircle(float radius, float outlineThickness, sf::Color color, sf::Color outlineColor);

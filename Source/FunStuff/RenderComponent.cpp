@@ -1,7 +1,7 @@
 #include "RenderComponent.h"
 
 // draw the sprite at the owner's tranform's position
-void RenderComponent::Draw() // name: Update()?
+void RenderComponent::UpdatePosition() // name: Update()?
 {
 	// set the sprite's position to our owner's transform's position
 	m_sprite.setPosition(m_ownerTransform.m_Position.x, m_ownerTransform.m_Position.y);

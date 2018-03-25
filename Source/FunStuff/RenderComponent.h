@@ -37,7 +37,7 @@ public:
 	~RenderComponent() {}
 
 	void Start();
-	void Draw();
+	void UpdatePosition();
 
 	//static sf::Sprite GetSprite();
 

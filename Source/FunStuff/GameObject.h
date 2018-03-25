@@ -7,6 +7,7 @@
 #include <iterator>
 
 #include <SFML/System/Clock.hpp>
+#include <SFML/Graphics/Texture.hpp>
 
 #include "Vector2.h"
 #include "BaseComponent.h"
@@ -19,7 +20,7 @@ class GameObject
 {
 public:
 	GameObject() {}
-	GameObject(int objID) : m_ID(objID), m_Parent(NULL) {}
+	GameObject(int objID, sf::Texture texture) : m_ID(objID), m_Parent(NULL), m_texture(texture) {}
 
 	// Get/Set
 	int GetObjID() { return m_ID; }
@@ -43,7 +44,7 @@ private:
 	sf::Transform identityMatrix;
 	sf::Transform worldTransform;
 
-
+	sf::Texture m_texture;
 };
 
 #endif

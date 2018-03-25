@@ -54,6 +54,7 @@ private:
 	// Engine
 	static SceneGraph sceneGraph;
 	static ThomasTankAssetHolder assetHolder;
+	static ThomasTankDemo demo;
 
 	// Stats
 	static const sf::Time timePerFrame;

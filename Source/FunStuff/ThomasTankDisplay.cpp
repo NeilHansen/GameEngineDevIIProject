@@ -5,6 +5,9 @@
 // Window
 sf::RenderWindow ThomasTankDisplay::mainWindow;
 
+// scene graph
+//SceneGraph ThomasTankDisplay::m_sceneGraph;
+
 // Stats text
 sf::Font statsFont;
 sf::Text statsText;
@@ -17,7 +20,7 @@ ThomasTankDisplay::~ThomasTankDisplay()
 {
 }
 
-void ThomasTankDisplay::Initialize()
+void ThomasTankDisplay::Initialize(SceneGraph sg)
 {
 	// Create window
 	ThomasTankDisplay::mainWindow.create(sf::VideoMode(1000, 800, 32), "Engine");
@@ -33,7 +36,7 @@ void ThomasTankDisplay::Initialize()
 	std::cout << "Display Engine Initialized" << "\n";
 }
 
-void ThomasTankDisplay::Draw(std::list<RenderComponent> rcs)
+void ThomasTankDisplay::Draw(SceneGraph sg)
 {
 	ThomasTankDisplay::mainWindow.clear();
 	/*
@@ -51,11 +54,18 @@ void ThomasTankDisplay::Draw(std::list<RenderComponent> rcs)
 	ThomasTankDisplay::mainWindow.draw(circle);
 	*/
 
-	for (std::list<RenderComponent>::iterator it =rcs.begin(); it != rcs.end(); it++)
+	int drawCount = 0;
+
+	std::list<RenderComponent> rcs = sg.renderComponents;
+	//std::cout << "rcs to draw: " << sg.renderComponents.size() << std::endl;
+
+	for (std::list<RenderComponent>::iterator it = rcs.begin(); it != rcs.end(); it++)
 	{
+		std::cout << "draw: " << drawCount++ << std::endl;
 		ThomasTankDisplay::mainWindow.draw(it->m_sprite);
 	}
 
+	//std::cout << "draw: " << drawCount++ << std::endl;
 	ThomasTankDisplay::mainWindow.draw(statsText);
 
 	ThomasTankDisplay::mainWindow.display();

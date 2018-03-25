@@ -4,7 +4,7 @@
 void GameObject::Start()
 {
 	m_Transform = TransformComponent();
-	m_Render = RenderComponent();
+	m_Render = RenderComponent(m_Transform, m_texture);
 	m_Render.Start();
 	m_RigidBody = RigidBodyComponent(m_Transform, m_Render, m_ID);
 
@@ -30,6 +30,7 @@ void GameObject::Update(sf::Time deltaTime)
 
 	// Run components/children update methods
 	m_Transform.Update();
+	m_Render.UpdatePosition();
 	for (std::vector<GameObject*>::iterator i = m_Children.begin(); i != m_Children.end(); ++i)
 	{
 		(*i)->Update(deltaTime);
