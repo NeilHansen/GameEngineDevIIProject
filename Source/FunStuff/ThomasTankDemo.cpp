@@ -15,7 +15,7 @@ void ThomasTankDemo::Start()
 	m_player = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(300.0f, 0.0f));
 	//m_player->m_Transform->m_Position = ;
 
-	//GameObject* test = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(150.0f, 0.0f));
+	GameObject* test = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(230.0f, 100.0f));
 	//test->m_Transform->m_Position = Vector2(240.0f, 0.0f);
 	// create other shit
 

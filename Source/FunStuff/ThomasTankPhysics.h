@@ -47,4 +47,4 @@ private:
 
 };
 
-#endif // !RIGIDBODYCOMPONENT_H
+#endif RIGIDBODYCOMPONENT_H
