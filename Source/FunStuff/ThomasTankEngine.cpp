@@ -72,7 +72,6 @@ void ThomasTankEngine::Initialize()
 	demo.Initialize();
 	demo.Start();
 
-	
 
 	gameState = ThomasTankEngine::ShowingSplash;
 

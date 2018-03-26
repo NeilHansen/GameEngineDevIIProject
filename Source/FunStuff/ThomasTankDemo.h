@@ -7,7 +7,7 @@
 class ThomasTankDemo
 {
 public:
-	float playerForce = 500.0f;
+	float playerForce = 1000.0f;
 
 private:
 	SceneGraph* m_sceneGraph;

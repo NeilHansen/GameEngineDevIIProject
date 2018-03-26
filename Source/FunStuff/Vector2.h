@@ -13,7 +13,6 @@ public:
 		return ((v1.x * v2.x) + (v2.y * v2.y));
 	}
 
-	//Vector2 operator=(const Vector2& v) const { return v; };
 
 	// Vector2 Arithmetic
 	Vector2 operator+(const Vector2& v) const { return Vector2(x + v.x, y + v.y); }

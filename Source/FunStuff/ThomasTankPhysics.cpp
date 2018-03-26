@@ -71,19 +71,13 @@ void ThomasTankPhysics::CheckCollisions()
 	// Traverse all rigidbodies
 	for (std::list<RigidBodyComponent*>::iterator bodyA = rigidBodies.begin(); bodyA != rigidBodies.end(); bodyA++)
 	{
-		// skip kinematic bodies
-		/*
-		if ((*bodyA)->m_isKinematic)
-		{
-			continue;
-		}
-		*/
-
 		// find the index of body a
+		/*
 		auto remainingElements = bodyA;
 		std::advance(remainingElements, 1);
+		*/
 
-		for (std::list<RigidBodyComponent*>::iterator bodyB = remainingElements; bodyB != rigidBodies.end(); bodyB++)
+		for (std::list<RigidBodyComponent*>::iterator bodyB = bodyA; bodyB != rigidBodies.end(); bodyB++)
 		{
 			if ((*bodyA)->m_Id == (*bodyB)->m_Id)
 			{
@@ -107,6 +101,8 @@ void ThomasTankPhysics::CheckCollisions()
 			Vector2 halfSizeB = Vector2(disB.x * 0.5f, disB.y * 0.5f);
 			
 			Vector2 gap = Vector2(abs(distance.x), abs(distance.y)) - Vector2(halfSizeA.x + halfSizeB.x, halfSizeA.y + halfSizeB.y);
+
+			std::cout << "Gap: (" << gap.x << ", " << gap.y << ")" << std::endl;
 
 			std::map<CollisionPair, CollisionInfo>::iterator it = collisions.find(colPair);
 
@@ -136,11 +132,11 @@ void ThomasTankPhysics::CheckCollisions()
 				{
 					if (distance.y < 0)
 					{
-						colInfo.collisionNormal = Vector2(0.0f, -1.0f); // up
+						colInfo.collisionNormal = Vector2(0.0f, 1.0f); // up
 					}
 					else
 					{
-						colInfo.collisionNormal = Vector2(0.0f, 1.0f); // down
+						colInfo.collisionNormal = Vector2(0.0f, -1.0f); // down
 					}
 					colInfo.penetration = gap.y;
 				}
