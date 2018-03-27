@@ -34,6 +34,6 @@ void RenderComponent::SetBounds()
 	m_bounds.center = Vector2(m_sprite.getOrigin().x, m_sprite.getOrigin().y);
 	m_bounds.extents = Vector2(r.width * 0.5f, r.height * 0.5f);
 
-	std::cout << "Bounds Center: (" << m_bounds.center.x << ", " << m_bounds.center.y << ")" << std::endl;
-	std::cout << "Bounds Extents: (" << m_bounds.extents.x << ", " << m_bounds.extents.y << ")" << std::endl;
+	//std::cout << "Bounds Center: (" << m_bounds.center.x << ", " << m_bounds.center.y << ")" << std::endl;
+	//std::cout << "Bounds Extents: (" << m_bounds.extents.x << ", " << m_bounds.extents.y << ")" << std::endl;
 }

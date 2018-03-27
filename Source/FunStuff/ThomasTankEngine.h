@@ -25,7 +25,9 @@ public:
 	// Methods
 	static void Initialize();
 	static void Run();
-	
+
+	static void MovePlayer(Vector2 dir);
+
 	// Game State
 	enum GameState { UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 	static GameState gameState;

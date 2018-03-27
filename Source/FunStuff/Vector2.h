@@ -10,10 +10,9 @@ public:
 
 	static float Dot(Vector2 v1, Vector2 v2) // must be normalized
 	{
-		return ((v1.x * v2.x) + (v2.y * v2.y));
+		return ((v1.x * v2.x) + (v1.y * v2.y));
 	}
 
-	//Vector2 operator=(const Vector2& v) const { return v; };
 
 	// Vector2 Arithmetic
 	Vector2 operator+(const Vector2& v) const { return Vector2(x + v.x, y + v.y); }
