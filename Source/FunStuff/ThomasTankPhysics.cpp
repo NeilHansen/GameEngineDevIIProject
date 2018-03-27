@@ -152,10 +152,21 @@ void ThomasTankPhysics::CheckCollisions()
 
 void ThomasTankPhysics::ResolveCollisions()
 {
+	if (collisions.size())
+	{
+		std::cout << "Collisions size: " << collisions.size() << std::endl;
+	}
+	
 	for (std::map<CollisionPair, CollisionInfo>::iterator it = collisions.begin(); it != collisions.end(); ++it)
 	{
 		float minBounce = std::min(it->first.rigidBodyA.m_bounciness, it->first.rigidBodyB.m_bounciness);
-		float velAlongNormal = Vector2::Dot(it->first.rigidBodyB.m_currentVelocity - it->first.rigidBodyA.m_currentVelocity, it->second.collisionNormal);
+		float velAlongNormal = Vector2::Dot((it->first.rigidBodyA.m_currentVelocity - it->first.rigidBodyB.m_currentVelocity) / (it->first.rigidBodyA.m_currentVelocity - it->first.rigidBodyB.m_currentVelocity),
+			(it->second.collisionNormal) / (it->second.collisionNormal));
+
+		//std::cout << "A Vel: (" << it->first.rigidBodyA.m_currentVelocity.x << ", " << it->first.rigidBodyA.m_currentVelocity.y << ")" << std::endl;
+		//std::cout << "B Vel: (" << it->first.rigidBodyB.m_currentVelocity.x << ", " << it->first.rigidBodyB.m_currentVelocity.y << ")" << std::endl;
+		//std::cout << "Col Norm: (" << it->second.collisionNormal.x << ", " << it->second.collisionNormal.y << ")" << std::endl;
+		//std::cout << "Vel Along Normal" << velAlongNormal << std::endl;
 
 		if (velAlongNormal > 0)
 		{

@@ -32,8 +32,8 @@ void RigidBodyComponent::SetAABB()
 	m_AABB.tRight = Vector2(m_ownerTransform->m_Position.x + m_ownerRenderer->m_bounds.extents.x,
 		m_ownerTransform->m_Position.y + m_ownerRenderer->m_bounds.extents.y);
 
-	std::cout << "bLeft: (" << m_AABB.bLeft.x << ", " << m_AABB.bLeft.y << ")" << std::endl;
-	std::cout << "tRight: (" << m_AABB.tRight.x << ", " << m_AABB.tRight.y << ")" << std::endl;
+	//std::cout << "bLeft: (" << m_AABB.bLeft.x << ", " << m_AABB.bLeft.y << ")" << std::endl;
+	//std::cout << "tRight: (" << m_AABB.tRight.x << ", " << m_AABB.tRight.y << ")" << std::endl;
 }
 
 void RigidBodyComponent::Integrate(float dt)
