@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <assert.h>
-
+#include "SFML/Audio.hpp"
 #include "SFML/Graphics.hpp"
 
 
@@ -16,6 +16,10 @@ public:
 	sf::Texture playerTexture;
 	sf::Texture enemyTexture;
 	sf::Texture miscTexture;
+	//sf::SoundBuffer buffer;
+	//sf::Sound bgMusic;
+	//sf::Sound sfx;
+	
 	
 
 private:

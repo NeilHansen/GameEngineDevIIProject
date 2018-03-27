@@ -24,5 +24,11 @@ void ThomasTankAssetHolder::LoadAssets()
 	}
 	//assert(!enemyTexture.loadFromFile(filePath + "/Images/enemy.png")); // change
 
+	//if(!buffer->loadFromFile(filePath + "Audio/Vanilla.wav"))
+	sf::Texture text;
+	//sf::SoundBuffer buffer;
+//	sf::Music music;
+	//music.openFromFile("Audio/Vanilla.wav");
+
 	std::cout << "Assets Loaded" << std::endl;
 }
