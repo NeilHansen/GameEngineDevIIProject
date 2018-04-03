@@ -39,6 +39,7 @@ void ThomasTankInput::ProcessInput()
 				{
 					
 					std::cout << "Mouse Button Right" << "\n";
+					ThomasTankAudio::PlaySfx("cha-ching.wav");
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{

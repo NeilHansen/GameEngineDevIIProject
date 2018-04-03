@@ -9,10 +9,10 @@ public:
 	ThomasTankAudio();
 	~ThomasTankAudio();
 	static void Initialize();
-	static void PlayMusic();
-	
+	static void PlayMusic(std::string filename);
+	static void PlaySfx(std::string filename);
 private:
  	static sf::SoundBuffer buffer;
 	static sf::Music music;
-
+	static sf::Sound sound;
 };
