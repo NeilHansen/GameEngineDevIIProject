@@ -71,6 +71,7 @@ void ThomasTankEngine::Initialize()
 	demo = ThomasTankDemo(&sceneGraph, assetHolder);
 	demo.Initialize();
 	demo.Start();
+	ThomasTankAudio::PlayMusic();
 
 
 	gameState = ThomasTankEngine::ShowingSplash;
