@@ -14,8 +14,16 @@ class ThomasTankAssetHolder
 
 public:
 	sf::Texture playerTexture;
-	sf::Texture enemyTexture;
+	sf::Texture playerWalkTexture;
+	sf::Texture playerShootTexture;
+	sf::Texture playerHitTexture;
+    sf::Texture enemyTexture;
+	sf::Texture enemyWalkTexture;
+	sf::Texture enemyShootTexture;
+	sf::Texture enemyHitTexture;
 	sf::Texture miscTexture;
+;
+	
 	
 
 private:

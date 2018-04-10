@@ -15,7 +15,7 @@ void ThomasTankDemo::Start()
 	m_player = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(100.0f, 200.0f));
 	m_player->m_RigidBody->m_mass = 10.0f;
 
-	m_player2 = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(400.0f, 200.0f));
+	m_player2 = m_sceneGraph->CreateObject(m_assetHolder.enemyTexture, false, Vector2(400.0f, 200.0f));
 	m_player2->m_RigidBody->m_mass = 10.0f;
 
 	//GameObject* test = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(230.0f, 100.0f));
@@ -48,5 +48,38 @@ void ThomasTankDemo::StopPlayer(bool isFirstPlayer)
 	else
 	{
 		m_player2->m_RigidBody->Stop();
+	}
+}
+
+void ThomasTankDemo::WalkingSprite(bool isWalking,bool isFirstPlayer)
+{
+	if (isFirstPlayer)
+	{
+		if (isWalking)
+		{
+		//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
+
+			std::cout << "Player 1 Walking............................................." << std::endl;
+		
+		}
+		else
+		{
+			//m_player->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.playerTexture);
+			std::cout << "Player 1 IDLE............................................." << std::endl;
+		}
+	}
+	else
+	{
+		if (isWalking)
+		{
+		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+			std::cout << "Player 2 Walking............................................." << std::endl;
+		}
+		else
+		{
+		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+			std::cout << "Player 2 IDLE............................................." << std::endl;
+		}
+		
 	}
 }

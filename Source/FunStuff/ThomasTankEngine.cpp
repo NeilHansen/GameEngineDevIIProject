@@ -160,6 +160,11 @@ void ThomasTankEngine::StopPlayer(bool isFirstPlayer)
 	demo.StopPlayer(isFirstPlayer);
 }
 
+void ThomasTankEngine::ChangeSprite(bool isWalking, bool isFirstPayer)
+{
+	demo.WalkingSprite(isWalking, isFirstPayer);
+}
+
 // Not actually being used right now
 void ThomasTankEngine::Quit()
 {

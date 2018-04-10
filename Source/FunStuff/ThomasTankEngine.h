@@ -29,6 +29,7 @@ public:
 	static void MovePlayer(Vector2 dir, bool isFirstPlayer);
 	static void StopPlayer(bool isFirstPlayer);
 
+	static void ChangeSprite(bool isWalking, bool isFirstPlayer);
 	// Game State
 	enum GameState { UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 	static GameState gameState;

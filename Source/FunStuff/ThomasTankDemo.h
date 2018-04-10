@@ -29,6 +29,8 @@ public:
 
 	void StopPlayer(bool isFirstPlayer);
 
+	static void WalkingSprite(bool isWalking, bool isFirstPlayer);
+
 private:
 	
 };

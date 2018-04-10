@@ -12,6 +12,7 @@ public:
 
 	static void MoveUp(bool isFirstPlayer);
 	static void MoveDown(bool isFirstPlayer);
+	static void ChangeSprite(bool isWalking, bool isFirstPlayer);
 
 private:
 

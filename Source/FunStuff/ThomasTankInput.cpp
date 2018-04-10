@@ -52,11 +52,14 @@ void ThomasTankInput::ProcessInput()
 				if (event.key.code == sf::Keyboard::W)
 				{
 					MoveUp(true);
+					ChangeSprite(true, true);
+					
 					//std::cout << "W" << "\n";
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
 					MoveDown(true);
+					ChangeSprite(true, true);
 					//std::cout << "S" << "\n";
 				}
 				
@@ -64,11 +67,13 @@ void ThomasTankInput::ProcessInput()
 				if (event.key.code == sf::Keyboard::Up)
 				{
 					MoveUp(false);
+					ChangeSprite(true, false);
 					//std::cout << "Up" << "\n";
 				}
 				if (event.key.code == sf::Keyboard::Down)
 				{
 					MoveDown(false);
+					ChangeSprite(true, false);
 					//std::cout << "Down" << "\n";
 				}
 			}
@@ -78,11 +83,13 @@ void ThomasTankInput::ProcessInput()
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(true);
+					ChangeSprite(false, true);
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(true);
+					ChangeSprite(false, true);
 				}
 
 				std::cout << "WTF M8" << std::endl;
@@ -92,11 +99,13 @@ void ThomasTankInput::ProcessInput()
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(false);
+					ChangeSprite(false, false);
 				}
 				if (event.key.code == sf::Keyboard::Down)
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(false);
+					ChangeSprite(false, false);
 				}
 			}
 		}
@@ -111,4 +120,9 @@ void ThomasTankInput::MoveUp(bool isFirstPlayer)
 void ThomasTankInput::MoveDown(bool isFirstPlayer)
 {
 	ThomasTankEngine::MovePlayer(Vector2(0.0f, 1.0f), isFirstPlayer);
+}
+
+void ThomasTankInput::ChangeSprite(bool isWalking, bool isFirstPlayer)
+{
+	ThomasTankEngine::ChangeSprite(isWalking, isFirstPlayer);
 }
