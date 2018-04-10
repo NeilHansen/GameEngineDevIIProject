@@ -37,63 +37,82 @@ void ThomasTankInput::ProcessInput()
 			{
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
 				{
+<<<<<<< HEAD
 					
 					std::cout << "Mouse Button Right" << "\n";
 					ThomasTankAudio::PlaySfx("cha-ching.wav");
+=======
+					//std::cout << "Mouse Button Right" << "\n";
+>>>>>>> feature/AE/Phys-iicksss
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					std::cout << "Mouse Button Left" << "\n";
+					//std::cout << "Mouse Button Left" << "\n";
 				}
 			}
-			//Keyboard Input
-			else if (event.type == sf::Event::EventType::KeyPressed)
+			//Keyboard Input - player1
+			if (event.type == sf::Event::EventType::KeyPressed)
 			{
 				if (event.key.code == sf::Keyboard::W)
 				{
-					MoveUp();
-					std::cout << "W" << "\n";
+					MoveUp(true);
+					//std::cout << "W" << "\n";
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
-					MoveDown();
-					std::cout << "S" << "\n";
+					MoveDown(true);
+					//std::cout << "S" << "\n";
 				}
-				if (event.key.code == sf::Keyboard::A)
+				
+				//player2
+				if (event.key.code == sf::Keyboard::Up)
 				{
-					MoveLeft();
-					std::cout << "A" << "\n";
+					MoveUp(false);
+					//std::cout << "Up" << "\n";
 				}
-				if (event.key.code == sf::Keyboard::D)
+				if (event.key.code == sf::Keyboard::Down)
 				{
-					MoveRight();
-					std::cout << "D" << "\n";
+					MoveDown(false);
+					//std::cout << "Down" << "\n";
 				}
-				if (event.key.code == sf::Keyboard::Space)
+			}
+			if(event.type == sf::Event::EventType::KeyReleased)
+			{
+				if (event.key.code == sf::Keyboard::W)
 				{
-					std::cout << "SPACE" << "\n";
+					//std::cout << "No input" << std::endl;
+					ThomasTankEngine::StopPlayer(true);
+				}
+				if (event.key.code == sf::Keyboard::S)
+				{
+					//std::cout << "No input" << std::endl;
+					ThomasTankEngine::StopPlayer(true);
+				}
+
+				std::cout << "WTF M8" << std::endl;
+
+				//player2
+				if (event.key.code == sf::Keyboard::Up)
+				{
+					//std::cout << "No input" << std::endl;
+					ThomasTankEngine::StopPlayer(false);
+				}
+				if (event.key.code == sf::Keyboard::Down)
+				{
+					//std::cout << "No input" << std::endl;
+					ThomasTankEngine::StopPlayer(false);
 				}
 			}
 		}
 	}
 }
 
-void ThomasTankInput::MoveUp()
+void ThomasTankInput::MoveUp(bool isFirstPlayer)
 {
-	ThomasTankEngine::MovePlayer(Vector2(0.0f, -1.0f));
+	ThomasTankEngine::MovePlayer(Vector2(0.0f, -1.0f), isFirstPlayer);
 }
 
-void ThomasTankInput::MoveDown()
+void ThomasTankInput::MoveDown(bool isFirstPlayer)
 {
-	ThomasTankEngine::MovePlayer(Vector2(0.0f, 1.0f));
-}
-
-void ThomasTankInput::MoveLeft()
-{
-	ThomasTankEngine::MovePlayer(Vector2(-1.0f, 0.0f));
-}
-
-void ThomasTankInput::MoveRight()
-{
-	ThomasTankEngine::MovePlayer(Vector2(1.0f, 0.0f));
+	ThomasTankEngine::MovePlayer(Vector2(0.0f, 1.0f), isFirstPlayer);
 }
