@@ -7,13 +7,14 @@
 class ThomasTankDemo
 {
 public:
-	float playerForce = 1000.0f;
+	float playerForce = 100.0f;
 
 private:
 	SceneGraph* m_sceneGraph;
 	ThomasTankAssetHolder m_assetHolder;
 
 	GameObject* m_player;
+	GameObject* m_player2;
 	GameObject* m_floor;
 
 public:
@@ -24,7 +25,9 @@ public:
 	void Initialize();
 	void Start(); // create gameobjects for demo
 
-	void MovePlayer(Vector2 dir); // called from input - adds force to our player ref's rigidbody
+	void MovePlayer(Vector2 dir, bool isFirstPlayer); // called from input - adds force to our player ref's rigidbody
+
+	void StopPlayer(bool isFirstPlayer);
 
 private:
 	

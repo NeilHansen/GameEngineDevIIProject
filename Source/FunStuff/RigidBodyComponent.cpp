@@ -6,7 +6,7 @@
 void RigidBodyComponent::Start()
 {
 	//std::cout << "RB START" << std::endl;
-	m_gravity = Vector2(0.0f, 9.8f);
+	m_gravity = Vector2(0.0f, 0.0f);
 	//std::cout << "Gravity: (" << m_gravity.x << ", " << m_gravity.y << ")" << std::endl;
 	SetAABB();
 	ThomasTankPhysics::AddRigidBody(this);
@@ -38,6 +38,8 @@ void RigidBodyComponent::SetAABB()
 
 void RigidBodyComponent::Integrate(float dt)
 {
+	//m_currentVelocity = Vector2(0.0f, 0.0f);
+
 	//std::cout << "Integrate" << std::endl;
 	if (!IsGrounded())
 	{
@@ -56,7 +58,26 @@ void RigidBodyComponent::Integrate(float dt)
 	}
 
 	m_currentVelocity = m_currentVelocity + (acceleration * dt);
-	//std::cout << "Velocity: (" << m_currentVelocity.x << ", " << m_currentVelocity.y << ")" << std::endl;
+
+	if (m_currentVelocity.x >= 100.0f)
+	{
+		m_currentVelocity.x = 100.0f;
+	}
+	if (m_currentVelocity.x <= -100.0f)
+	{
+		m_currentVelocity.x = -100.0f;
+	}
+
+	if (m_currentVelocity.y >= 100.0f)
+	{
+		m_currentVelocity.y = 100.0f;
+	}
+	if (m_currentVelocity.y <= -100.0f)
+	{
+		m_currentVelocity.y = -100.0f;
+	}
+
+	std::cout << "Velocity: (" << m_currentVelocity.x << ", " << m_currentVelocity.y << ")" << std::endl;
 
 	Vector2 temp = m_ownerTransform->m_Position;
 	//std::cout << "Temp Pos: (" << temp.x << ", " << temp.y << ")" << std::endl;

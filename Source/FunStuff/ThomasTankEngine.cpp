@@ -149,9 +149,14 @@ void ThomasTankEngine::Update(sf::Time deltaTime)
 }
 
 // called from input - tells demo to move player
-void ThomasTankEngine::MovePlayer(Vector2 dir)
+void ThomasTankEngine::MovePlayer(Vector2 dir, bool isFirstPlayer)
 {
-	demo.MovePlayer(dir);
+	demo.MovePlayer(dir, isFirstPlayer);
+}
+
+void ThomasTankEngine::StopPlayer(bool isFirstPlayer)
+{
+	demo.StopPlayer(isFirstPlayer);
 }
 
 // Not actually being used right now

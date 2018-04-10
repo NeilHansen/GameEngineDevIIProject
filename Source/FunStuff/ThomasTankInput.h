@@ -10,10 +10,8 @@ public:
 	static void Initialize();
 	static void ProcessInput();
 
-	static void MoveUp();
-	static void MoveDown();
-	static void MoveLeft();
-	static void MoveRight();
+	static void MoveUp(bool isFirstPlayer);
+	static void MoveDown(bool isFirstPlayer);
 
 private:
 
