@@ -51,16 +51,16 @@ void ThomasTankDemo::StopPlayer(bool isFirstPlayer)
 	}
 }
 
-void ThomasTankDemo::WalkingSprite(bool isWalking,bool isFirstPlayer)
+void ThomasTankDemo::WalkingSprite(bool isWalking, bool isFirstPlayer)
 {
 	if (isFirstPlayer)
 	{
 		if (isWalking)
 		{
-		//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
+			//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
 
 			std::cout << "Player 1 Walking............................................." << std::endl;
-		
+
 		}
 		else
 		{
@@ -72,14 +72,46 @@ void ThomasTankDemo::WalkingSprite(bool isWalking,bool isFirstPlayer)
 	{
 		if (isWalking)
 		{
-		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+			//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
 			std::cout << "Player 2 Walking............................................." << std::endl;
 		}
 		else
 		{
-		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+			//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
 			std::cout << "Player 2 IDLE............................................." << std::endl;
 		}
-		
+
+	}
+}
+
+void ThomasTankDemo::ShootingSprite(bool isFirstPlayer)
+{
+	if (isFirstPlayer)
+	{
+		//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
+		std::cout << "Player 1 Firing............................................." << std::endl;
+		//set delay here too
+	}
+	else
+	{
+		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+		std::cout << "Player 2 Firing............................................." << std::endl;
+		//set delay here too
+	}
+}
+
+void ThomasTankDemo::DeathSprite(bool isFirstPlayer)
+{
+	if (isFirstPlayer)
+	{
+		//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
+		std::cout << "Player 1 Dead............................................." << std::endl;
+		//set delay here too
+	}
+	else
+	{
+		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+		std::cout << "Player 2 Dead............................................" << std::endl;
+		//set delay here too
 	}
 }

@@ -30,7 +30,8 @@ public:
 	void StopPlayer(bool isFirstPlayer);
 
 	static void WalkingSprite(bool isWalking, bool isFirstPlayer);
-
+	static void ShootingSprite(bool isFirstPlayer);
+	static void DeathSprite(bool isFristPlayer);
 private:
 	
 };
