@@ -52,11 +52,14 @@ void ThomasTankInput::ProcessInput()
 				if (event.key.code == sf::Keyboard::W)
 				{
 					MoveUp(true);
+					WalkingAnim(true, true);
+					
 					//std::cout << "W" << "\n";
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
 					MoveDown(true);
+					WalkingAnim(true, true);
 					//std::cout << "S" << "\n";
 				}
 				
@@ -64,11 +67,13 @@ void ThomasTankInput::ProcessInput()
 				if (event.key.code == sf::Keyboard::Up)
 				{
 					MoveUp(false);
+					WalkingAnim(true, false);
 					//std::cout << "Up" << "\n";
 				}
 				if (event.key.code == sf::Keyboard::Down)
 				{
 					MoveDown(false);
+					WalkingAnim(true, false);
 					//std::cout << "Down" << "\n";
 				}
 			}
@@ -78,11 +83,13 @@ void ThomasTankInput::ProcessInput()
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(true);
+					WalkingAnim(false, true);
 				}
 				if (event.key.code == sf::Keyboard::S)
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(true);
+					WalkingAnim(false, true);
 				}
 
 				std::cout << "WTF M8" << std::endl;
@@ -92,11 +99,13 @@ void ThomasTankInput::ProcessInput()
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(false);
+					WalkingAnim(false, false);
 				}
 				if (event.key.code == sf::Keyboard::Down)
 				{
 					//std::cout << "No input" << std::endl;
 					ThomasTankEngine::StopPlayer(false);
+					WalkingAnim(false, false);
 				}
 			}
 		}
@@ -111,4 +120,19 @@ void ThomasTankInput::MoveUp(bool isFirstPlayer)
 void ThomasTankInput::MoveDown(bool isFirstPlayer)
 {
 	ThomasTankEngine::MovePlayer(Vector2(0.0f, 1.0f), isFirstPlayer);
+}
+
+void ThomasTankInput::WalkingAnim(bool isWalking, bool isFirstPlayer)
+{
+	ThomasTankEngine::WalkingAnim(isWalking, isFirstPlayer);
+}
+
+void ThomasTankInput::ShootAnim( bool isFirstPlayer)
+{
+	ThomasTankEngine::ShootAnim( isFirstPlayer);
+}
+
+void ThomasTankInput::DeathAnim(bool isFirstPlayer)
+{
+	ThomasTankEngine::DeathAnim(isFirstPlayer);
 }

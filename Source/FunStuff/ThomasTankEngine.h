@@ -28,7 +28,10 @@ public:
 
 	static void MovePlayer(Vector2 dir, bool isFirstPlayer);
 	static void StopPlayer(bool isFirstPlayer);
-
+	//animations
+	static void WalkingAnim(bool isWalking, bool isFirstPlayer);
+	static void ShootAnim(bool isFirstPlayer);
+	static void DeathAnim(bool isFirstPlayer);
 	// Game State
 	enum GameState { UnInitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting };
 	static GameState gameState;

@@ -160,6 +160,21 @@ void ThomasTankEngine::StopPlayer(bool isFirstPlayer)
 	demo.StopPlayer(isFirstPlayer);
 }
 
+void ThomasTankEngine::WalkingAnim(bool isWalking, bool isFirstPayer)
+{
+	demo.WalkingSprite(isWalking, isFirstPayer);
+}
+
+void ThomasTankEngine::ShootAnim( bool isFirstPayer)
+{
+	demo.ShootingSprite(isFirstPayer);
+}
+
+void ThomasTankEngine::DeathAnim(bool isFirstPlayer)
+{
+	demo.DeathSprite(isFirstPlayer);
+}
+
 // Not actually being used right now
 void ThomasTankEngine::Quit()
 {
