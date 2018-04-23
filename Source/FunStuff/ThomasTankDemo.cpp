@@ -12,10 +12,10 @@ void ThomasTankDemo::Start()
 	//m_floor->m_Transform->m_Position = ;
 
 	// Create player
-	m_player = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(100.0f, 200.0f));
+	m_player = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(100.0f, (m_mainDisplay.mainWindow.getSize().y) / 2));
 	m_player->m_RigidBody->m_mass = 10.0f;
 
-	m_player2 = m_sceneGraph->CreateObject(m_assetHolder.enemyTexture, false, Vector2(400.0f, 200.0f));
+	m_player2 = m_sceneGraph->CreateObject(m_assetHolder.enemyTexture, false, Vector2((m_mainDisplay.mainWindow.getSize().x) - 100.0f, (m_mainDisplay.mainWindow.getSize().y) / 2));
 	m_player2->m_RigidBody->m_mass = 10.0f;
 
 	//GameObject* test = m_sceneGraph->CreateObject(m_assetHolder.playerTexture, false, Vector2(230.0f, 100.0f));

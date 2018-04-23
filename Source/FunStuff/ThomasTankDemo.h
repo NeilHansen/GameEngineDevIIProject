@@ -3,6 +3,7 @@
 #include "Vector2.h"
 #include "SceneGraph.h"
 #include "ThomasTankAssetHolder.h"
+#include "ThomasTankDisplay.h"
 
 class ThomasTankDemo
 {
@@ -12,6 +13,7 @@ public:
 private:
 	SceneGraph* m_sceneGraph;
 	ThomasTankAssetHolder m_assetHolder;
+	ThomasTankDisplay m_mainDisplay;
 
 	GameObject* m_player;
 	GameObject* m_player2;
