@@ -9,6 +9,8 @@ class ThomasTankDemo
 {
 public:
 	float playerForce = 100.0f;
+	bool isChanged;
+	bool is2Changed;
 
 private:
 	SceneGraph* m_sceneGraph;
@@ -31,9 +33,9 @@ public:
 
 	void StopPlayer(bool isFirstPlayer);
 
-	static void WalkingSprite(bool isWalking, bool isFirstPlayer);
-	static void ShootingSprite(bool isFirstPlayer);
-	static void DeathSprite(bool isFristPlayer);
+	void WalkingSprite(bool isWalking, bool isFirstPlayer);
+	void ShootingSprite(bool isFirstPlayer);
+	void DeathSprite(bool isFristPlayer);
 private:
 	
 };

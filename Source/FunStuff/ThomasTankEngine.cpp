@@ -71,7 +71,7 @@ void ThomasTankEngine::Initialize()
 	demo = ThomasTankDemo(&sceneGraph, assetHolder);
 	demo.Initialize();
 	demo.Start();
-	ThomasTankAudio::PlayMusic("Music.wav");
+	
 
 
 	gameState = ThomasTankEngine::ShowingSplash;
@@ -89,6 +89,7 @@ void ThomasTankEngine::Run()
 	// Splash
 	if (gameState == ThomasTankEngine::ShowingSplash)
 	{
+		ThomasTankAudio::PlayMusic("Music.wav");
 		cout << "\nShow splash" << endl;
 		ThomasTankSplash::Show(ThomasTankDisplay::mainWindow);
 	}

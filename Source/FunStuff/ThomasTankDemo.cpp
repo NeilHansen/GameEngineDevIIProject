@@ -7,6 +7,8 @@ void ThomasTankDemo::Initialize()
 
 void ThomasTankDemo::Start()
 {
+	isChanged = true;
+	is2Changed = true;
 	// Create floor
 	//m_floor = m_sceneGraph->CreateObject(m_assetHolder.miscTexture, true, Vector2(300.0f, 500.0f));
 	//m_floor->m_Transform->m_Position = ;
@@ -57,14 +59,21 @@ void ThomasTankDemo::WalkingSprite(bool isWalking, bool isFirstPlayer)
 	{
 		if (isWalking)
 		{
-			//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
+			if (isChanged) 
+			{
+				isChanged = false;
+				m_player->m_Render->m_texture = ThomasTankDemo::m_assetHolder.playerWalkTexture;
+			}
+			else if(!isChanged){
+				isChanged = true;
+				m_player->m_Render->m_texture = ThomasTankDemo::m_assetHolder.playerTexture;
+			}
 
 			std::cout << "Player 1 Walking............................................." << std::endl;
-
 		}
 		else
 		{
-			//m_player->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.playerTexture);
+			m_player->m_Render->m_texture = ThomasTankDemo::m_assetHolder.playerTexture;
 			std::cout << "Player 1 IDLE............................................." << std::endl;
 		}
 	}
@@ -72,12 +81,23 @@ void ThomasTankDemo::WalkingSprite(bool isWalking, bool isFirstPlayer)
 	{
 		if (isWalking)
 		{
-			//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+			if (is2Changed)
+			{
+				is2Changed = false;
+				m_player2->m_Render->m_texture = ThomasTankDemo::m_assetHolder.enemyWalkTexture;
+			}
+			else if (!is2Changed) 
+			{
+				is2Changed = true;
+				m_player2->m_Render->m_texture = ThomasTankDemo::m_assetHolder.enemyTexture;
+			}
+
 			std::cout << "Player 2 Walking............................................." << std::endl;
 		}
 		else
 		{
-			//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+			m_player2->m_Render->m_texture = ThomasTankDemo::m_assetHolder.enemyTexture;
+
 			std::cout << "Player 2 IDLE............................................." << std::endl;
 		}
 
@@ -88,13 +108,13 @@ void ThomasTankDemo::ShootingSprite(bool isFirstPlayer)
 {
 	if (isFirstPlayer)
 	{
-		//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
+		m_player->m_Render->m_texture = ThomasTankDemo::m_assetHolder.playerShootTexture;
 		std::cout << "Player 1 Firing............................................." << std::endl;
 		//set delay here too
 	}
 	else
 	{
-		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
+		m_player2->m_Render->m_texture = ThomasTankDemo::m_assetHolder.enemyShootTexture;
 		std::cout << "Player 2 Firing............................................." << std::endl;
 		//set delay here too
 	}
@@ -104,12 +124,14 @@ void ThomasTankDemo::DeathSprite(bool isFirstPlayer)
 {
 	if (isFirstPlayer)
 	{
+		m_player->m_Render->m_texture = ThomasTankDemo::m_assetHolder.playerHitTexture;
 		//	m_player->m_Render->m_texture(ThomasTankDemo::m_assetHolder.playerWalkTexture);
 		std::cout << "Player 1 Dead............................................." << std::endl;
 		//set delay here too
 	}
 	else
 	{
+		m_player2->m_Render->m_texture = ThomasTankDemo::m_assetHolder.enemyHitTexture;
 		//	m_player2->m_Render->m_texture.swap(ThomasTankDemo::m_assetHolder.enemyWalkTexture);
 		std::cout << "Player 2 Dead............................................" << std::endl;
 		//set delay here too

@@ -77,7 +77,7 @@ void RigidBodyComponent::Integrate(float dt)
 		m_currentVelocity.y = -100.0f;
 	}
 
-	std::cout << "Velocity: (" << m_currentVelocity.x << ", " << m_currentVelocity.y << ")" << std::endl;
+	//std::cout << "Velocity: (" << m_currentVelocity.x << ", " << m_currentVelocity.y << ")" << std::endl;
 
 	Vector2 temp = m_ownerTransform->m_Position;
 	//std::cout << "Temp Pos: (" << temp.x << ", " << temp.y << ")" << std::endl;

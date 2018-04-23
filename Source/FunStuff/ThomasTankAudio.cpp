@@ -31,6 +31,11 @@ void ThomasTankAudio::PlayMusic(std::string filename)
 	music.play();
 }
 
+void ThomasTankAudio::StopMusic()
+{
+	music.stop();
+}
+
 
 // use this for filename "filename.extention"
 void ThomasTankAudio::PlaySfx(std::string filename)

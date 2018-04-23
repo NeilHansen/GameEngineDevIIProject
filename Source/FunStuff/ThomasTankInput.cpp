@@ -27,6 +27,8 @@ void ThomasTankInput::ProcessInput()
 			{
 				ThomasTankEngine::gameState = ThomasTankEngine::Playing;
 				std::cout << "Input on splash" << "\n";
+				ThomasTankAudio::StopMusic();
+				ThomasTankAudio::PlayMusic("The XX - Intro.wav");
 				return;
 			}
 		}
@@ -39,7 +41,6 @@ void ThomasTankInput::ProcessInput()
 				{
 					std::cout << "Mouse Button Right" << "\n";
 					ThomasTankAudio::PlaySfx("cha-ching.wav");
-					//std::cout << "Mouse Button Right" << "\n";
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
@@ -92,7 +93,7 @@ void ThomasTankInput::ProcessInput()
 					WalkingAnim(false, true);
 				}
 
-				std::cout << "WTF M8" << std::endl;
+				//std::cout << "WTF M8" << std::endl;
 
 				//player2
 				if (event.key.code == sf::Keyboard::Up)
