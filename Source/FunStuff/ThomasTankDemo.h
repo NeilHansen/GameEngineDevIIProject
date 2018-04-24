@@ -4,6 +4,7 @@
 #include "SceneGraph.h"
 #include "ThomasTankAssetHolder.h"
 #include "ThomasTankDisplay.h"
+#include "ThomasTankInput.h"
 
 class ThomasTankDemo
 {
@@ -20,6 +21,8 @@ private:
 	GameObject* m_player;
 	GameObject* m_player2;
 	GameObject* m_floor;
+	GameObject* m_bullet;
+	GameObject* m_bullet2;
 
 public:
 	ThomasTankDemo() {}
@@ -36,6 +39,8 @@ public:
 	void WalkingSprite(bool isWalking, bool isFirstPlayer);
 	void ShootingSprite(bool isFirstPlayer);
 	void DeathSprite(bool isFristPlayer);
+	void MoveSprite();
+	void MoveBullet(bool isFirstPlayer);
 private:
 	
 };

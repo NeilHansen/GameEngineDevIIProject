@@ -15,6 +15,8 @@ public:
 	static void WalkingAnim(bool isWalking, bool isFirstPlayer);
 	static void ShootAnim(bool isFirstplayer);
 	static void DeathAnim(bool isFirstplayer);
+
+	static bool canMove;
 private:
 
 };

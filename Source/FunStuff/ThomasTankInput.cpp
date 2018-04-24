@@ -4,6 +4,7 @@
 
 void ThomasTankInput::Initialize()
 {
+	canMove = true;
 	std::cout << "Input System Initialized" << "\n";
 }
 
@@ -34,95 +35,106 @@ void ThomasTankInput::ProcessInput()
 		}
 		if (ThomasTankEngine::gameState == ThomasTankEngine::Playing)
 		{
-			//mouse input
-			if (event.type == sf::Event::EventType::MouseButtonPressed)
-			{
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+			if (canMove) {
+				//mouse input
+				if (event.type == sf::Event::EventType::MouseButtonPressed)
 				{
-					std::cout << "Mouse Button Right" << "\n";
-					ThomasTankAudio::PlaySfx("cha-ching.wav");
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+					{
+						std::cout << "Mouse Button Right" << "\n";
+						ThomasTankAudio::PlaySfx("cha-ching.wav");
+					}
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+					{
+						//std::cout << "Mouse Button Left" << "\n";
+					}
 				}
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				//Keyboard Input - player1
+				if (event.type == sf::Event::EventType::KeyPressed)
 				{
-					//std::cout << "Mouse Button Left" << "\n";
-				}
-			}
-			//Keyboard Input - player1
-			if (event.type == sf::Event::EventType::KeyPressed)
-			{
-				if (event.key.code == sf::Keyboard::W)
-				{
-					MoveUp(true);
-					WalkingAnim(true, true);
-					
-					//std::cout << "W" << "\n";
-				}
-				if (event.key.code == sf::Keyboard::S)
-				{
-					MoveDown(true);
-					WalkingAnim(true, true);
-					//std::cout << "S" << "\n";
-				}
+					if (event.key.code == sf::Keyboard::W)
+					{
+						MoveUp(true);
+						WalkingAnim(true, true);
 
-				//player 1 fire
-				if (event.key.code == sf::Keyboard::LControl)
-				{
-					//Fire(true);
-					ShootAnim(true);
-					//std::cout << "S" << "\n";
-				}
-				
-				//player2
-				if (event.key.code == sf::Keyboard::Up)
-				{
-					MoveUp(false);
-					WalkingAnim(true, false);
-					//std::cout << "Up" << "\n";
-				}
-				if (event.key.code == sf::Keyboard::Down)
-				{
-					MoveDown(false);
-					WalkingAnim(true, false);
-					//std::cout << "Down" << "\n";
-				}
+						//std::cout << "W" << "\n";
+					}
+					if (event.key.code == sf::Keyboard::S)
+					{
+						MoveDown(true);
+						WalkingAnim(true, true);
+						//std::cout << "S" << "\n";
+					}
 
-				//player 2 fire
-				if (event.key.code == sf::Keyboard::RControl)
-				{
-					//Fire(true);
-					ShootAnim(false);
-					//std::cout << "S" << "\n";
-				}
-			}
-			if(event.type == sf::Event::EventType::KeyReleased)
-			{
-				if (event.key.code == sf::Keyboard::W)
-				{
-					//std::cout << "No input" << std::endl;
-					ThomasTankEngine::StopPlayer(true);
-					WalkingAnim(false, true);
-				}
-				if (event.key.code == sf::Keyboard::S)
-				{
-					//std::cout << "No input" << std::endl;
-					ThomasTankEngine::StopPlayer(true);
-					WalkingAnim(false, true);
-				}
+					//player 1 fire
+					if (event.key.code == sf::Keyboard::LControl)
+					{
+						//Fire(true);
+						ShootAnim(true);
+						//std::cout << "S" << "\n";
+					}
 
-				//std::cout << "WTF M8" << std::endl;
+					//player2
+					if (event.key.code == sf::Keyboard::Up)
+					{
+						MoveUp(false);
+						WalkingAnim(true, false);
+						//std::cout << "Up" << "\n";
+					}
+					if (event.key.code == sf::Keyboard::Down)
+					{
+						MoveDown(false);
+						WalkingAnim(true, false);
+						//std::cout << "Down" << "\n";
+					}
 
-				//player2
-				if (event.key.code == sf::Keyboard::Up)
-				{
-					//std::cout << "No input" << std::endl;
-					ThomasTankEngine::StopPlayer(false);
-					WalkingAnim(false, false);
+					//player 2 fire
+					if (event.key.code == sf::Keyboard::RControl)
+					{
+						//Fire(true);
+						ShootAnim(false);
+						//std::cout << "S" << "\n";
+					}
 				}
-				if (event.key.code == sf::Keyboard::Down)
+				if (event.type == sf::Event::EventType::KeyReleased)
 				{
-					//std::cout << "No input" << std::endl;
-					ThomasTankEngine::StopPlayer(false);
-					WalkingAnim(false, false);
+					if (event.key.code == sf::Keyboard::W)
+					{
+						//std::cout << "No input" << std::endl;
+						ThomasTankEngine::StopPlayer(true);
+						WalkingAnim(false, true);
+					}
+					if (event.key.code == sf::Keyboard::S)
+					{
+						//std::cout << "No input" << std::endl;
+						ThomasTankEngine::StopPlayer(true);
+						WalkingAnim(false, true);
+					}
+					/*if (event.key.code == sf::Keyboard::LControl)
+					{
+						WalkingAnim(false, true);
+					}*/
+
+					//std::cout << "WTF M8" << std::endl;
+
+					//player2
+					if (event.key.code == sf::Keyboard::Up)
+					{
+						//std::cout << "No input" << std::endl;
+						ThomasTankEngine::StopPlayer(false);
+						WalkingAnim(false, false);
+					}
+					if (event.key.code == sf::Keyboard::Down)
+					{
+						//std::cout << "No input" << std::endl;
+						ThomasTankEngine::StopPlayer(false);
+						WalkingAnim(false, false);
+					}
+
+					/*if (event.key.code == sf::Keyboard::RControl)
+					{
+						WalkingAnim(false, false);
+					}*/
 				}
 			}
 		}
