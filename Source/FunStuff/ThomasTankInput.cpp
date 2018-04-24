@@ -63,6 +63,14 @@ void ThomasTankInput::ProcessInput()
 					WalkingAnim(true, true);
 					//std::cout << "S" << "\n";
 				}
+
+				//player 1 fire
+				if (event.key.code == sf::Keyboard::LControl)
+				{
+					//Fire(true);
+					ShootAnim(true);
+					//std::cout << "S" << "\n";
+				}
 				
 				//player2
 				if (event.key.code == sf::Keyboard::Up)
@@ -76,6 +84,14 @@ void ThomasTankInput::ProcessInput()
 					MoveDown(false);
 					WalkingAnim(true, false);
 					//std::cout << "Down" << "\n";
+				}
+
+				//player 2 fire
+				if (event.key.code == sf::Keyboard::RControl)
+				{
+					//Fire(true);
+					ShootAnim(false);
+					//std::cout << "S" << "\n";
 				}
 			}
 			if(event.type == sf::Event::EventType::KeyReleased)
@@ -128,9 +144,9 @@ void ThomasTankInput::WalkingAnim(bool isWalking, bool isFirstPlayer)
 	ThomasTankEngine::WalkingAnim(isWalking, isFirstPlayer);
 }
 
-void ThomasTankInput::ShootAnim( bool isFirstPlayer)
+void ThomasTankInput::ShootAnim(bool isFirstPlayer)
 {
-	ThomasTankEngine::ShootAnim( isFirstPlayer);
+	ThomasTankEngine::ShootAnim(isFirstPlayer);
 }
 
 void ThomasTankInput::DeathAnim(bool isFirstPlayer)
